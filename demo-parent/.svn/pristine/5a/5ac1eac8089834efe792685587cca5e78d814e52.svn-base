@@ -1,0 +1,119 @@
+/**
+ * 版权所有(C)，上海海鼎信息工程股份有限公司，2016，所有权利保留。
+ * 
+ * 项目名：	demo-web
+ * 文件名：	ProductController.java
+ * 模块说明：	
+ * 修改历史：
+ * 2016年11月26日 - cRazy - 创建。
+ */
+package com.hd123.demo.controller.product;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.hd123.demo.controller.ModuleController;
+import com.hd123.demo.query.QueryFilter;
+import com.hd123.demo.query.SummaryQueryResult;
+import com.hd123.demo.service.product.Product;
+import com.hd123.demo.service.product.ProductService;
+import com.hd123.rumba.commons.biz.entity.OperateContext;
+import com.hd123.rumba.commons.biz.entity.UCN;
+import com.hd123.rumba.commons.biz.query.QueryDefinition;
+import com.hd123.rumba.commons.biz.query.QueryResult;
+
+/**
+ * @author cRazy
+ *
+ */
+@Controller
+@RequestMapping("product/*")
+public class ProductController extends ModuleController {
+
+  @Autowired
+  private ProductService productService;
+  @Autowired
+  private ProductQueryBuilder queryBuilder;
+
+  private static List<UCN> banks = new ArrayList<UCN>();
+  static {
+    banks.add(new UCN("0001", "0001", "中国银行"));
+    banks.add(new UCN("0002", "0002", "中国工商银行"));
+    banks.add(new UCN("0003", "0003", "中国建设银行"));
+    banks.add(new UCN("0004", "0004", "中国农业银行"));
+    banks.add(new UCN("0005", "0005", "中国交通银行"));
+  }
+
+  @RequestMapping("query")
+  public @ResponseBody SummaryQueryResult query(@RequestBody QueryFilter queryFilter) {
+    if (queryFilter == null) {
+      return new SummaryQueryResult();
+    }
+    QueryDefinition queryDef = queryBuilder.build(queryFilter);
+
+    QueryResult<Product> queryResult = productService.query(queryDef);
+    SummaryQueryResult result = SummaryQueryResult.newInstance(queryResult);
+    return result;
+  }
+
+  @RequestMapping(value = "save")
+  public @ResponseBody Product save(@RequestBody Product product) throws Exception {
+    if (product == null) {
+      return null;
+    }
+
+    String uuid = productService.save(product, new OperateContext(getSessionUser()));
+    return get(uuid);
+  }
+
+  @RequestMapping(value = "load", method = RequestMethod.GET)
+  public @ResponseBody Product get(@RequestParam("uuid") String uuid) throws Exception {
+    return productService.get(uuid);
+  }
+
+  @RequestMapping(value = "delete")
+  @ResponseStatus(HttpStatus.OK)
+  public void delete(@RequestBody Product product) throws Exception {
+    productService.delete(product.getUuid(), product.getVersion(), new OperateContext(
+        getSessionUser()));
+  }
+
+  @RequestMapping(value = "undelete")
+  @ResponseStatus(HttpStatus.OK)
+  public void undelete(@RequestBody Product product) throws Exception {
+    productService.undelete(product.getUuid(), product.getVersion(), new OperateContext(
+        getSessionUser()));
+  }
+
+  @RequestMapping(value = "queryBanks", method = RequestMethod.POST)
+  public @ResponseBody List<UCN> queryBanks(
+      @RequestParam(value = "keyword", required = false) String keyword,
+      @RequestParam(value = "id", required = false) String id) throws Exception {
+    List<UCN> result = new ArrayList<UCN>();
+    for (UCN bank : banks) {
+      if (keyword != null) {
+        if (bank.getName().contains(keyword) == false) {
+          continue;
+        }
+      }
+      if (id != null) {
+        if (id.endsWith(bank.getUuid()) == false) {
+          continue;
+        }
+      }
+      result.add(bank);
+    }
+
+    return result;
+  }
+}

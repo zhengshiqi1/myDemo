@@ -1,0 +1,40 @@
+@include extjs-label-ui(
+        $ui: 'plain'
+)
+/** 非聚焦时，无边框*/
+@include extjs-text-field-ui(
+        $ui: 'plain',
+        $ui-border-color: transparent
+);
+
+@include extjs-label-ui(
+        $ui: 'noborder'
+);
+/** 无边框*/
+@include extjs-text-field-ui(
+        $ui: 'noborder',
+        $ui-border-color: transparent,
+        $ui-focus-border-color: transparent
+);
+
+@include extjs-label-ui(
+        $ui: 'display-trigger'
+);
+/** 无边框*/
+@include extjs-text-field-ui(
+        $ui: 'display-trigger',
+        $ui-trigger-glyph: $fa-var-close,
+        $ui-border-width: 0,
+        $ui-border-color: transparent,
+        $ui-trigger-glyph-color: #333333
+);
+
+.#{$prefix}form-spinner-up-default {
+  height: 10px !important;
+  line-height: 0.8 !important;
+}
+
+.#{$prefix}form-spinner-down-default {
+  height: 10px !important;
+  line-height: 0.8 !important;
+}

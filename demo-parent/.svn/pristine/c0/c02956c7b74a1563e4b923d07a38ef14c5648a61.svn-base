@@ -1,0 +1,143 @@
+/******************************************************
+  RBrowserDialog
+******************************************************/
+.rb-BrowserDialog-filterpanel {
+  border: 1px solid #B7D2FA;
+}
+
+/******************************************************
+  RBrowseBox
+******************************************************/
+.rb-BrowseBox-nonEditable {
+  border-color: #b0b0b0;
+  background: #e7edf4;  
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton {
+  background: url(../images/form/browse/browseBtn.gif) no-repeat 3px center;
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton-disabled {
+  background: url(../images/form/browse/browseBtn-dis.gif) no-repeat 3px center;
+  cursor: default;
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton-hover {
+  background: #fffbf0 url(../images/form/browse/browseBtn-hov.gif) no-repeat center center;
+  border-left: 1px solid #c8ba94;
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton-mouseDown {
+  background: #ffeaae url(../images/form/browse/browseBtn-mouseDown.gif) no-repeat center center;
+  border-left: 1px solid #b0a380;
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton-fieldHover {
+  background: #e4f4fd url(../images/form/browse/browseBtn-fldHov.gif) no-repeat center center;
+  border-left: 1px solid #b2c6df;
+}
+
+.rb-BrowseBox .rbi-BrowseBox-browseButton-fieldFocus {
+  background: #fffbf0 url(../images/form/browse/browseBtn-fldFocus.gif) no-repeat center center;
+  border-left: 1px solid #b0a380;
+}
+
+/******************************************************
+  RUCNBox
+******************************************************/
+.rb-OldUCNBox {
+  float: left;
+}
+
+.rb-OldUCNBox-browsebutton {
+  float: left;
+  padding: 2px 0px 0px 0px;
+  cursor: hand;
+}
+
+/******************************************************
+  RStackTitle
+******************************************************/
+.rb-StackTitle {}
+.rb-StackTitle-bigger {}
+.rb-StackTitle .iconCell { vertical-align: middle; }
+.rb-StackTitle .icon {}
+.rb-StackTitle .itemsCell { vertical-align: middle; }
+.rb-StackTitle .items { padding: 0px 3px 0px 3px; }
+.rb-StackTitle .item { padding: 0px 2px 0px 3px; font-family: ΢���ź�,Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 11pt; font-weight: bold; }
+.rb-StackTitle .item-bigger { font-size: 12pt; }
+.rb-StackTitle .separator { padding: 0px; font-size: 11pt; font-weight: bold; }
+.rb-StackTitle .separator-bigger { font-size: 12pt; }
+
+/******************************************************
+  RStandardTitle
+******************************************************/
+.rb-StandardTitle {}
+.rb-StandardTitle .title { font-family: ΢���ź�,Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 11pt; font-weight: bold; padding: 0px 0px 0px 6px; }
+.rb-StandardTitle .colon { font-size: 11pt; font-weight: bold; padding: 0px 6px 0px 3px;}
+.rb-StandardTitle .attribute { font-family: ΢���ź�,Tahoma,Verdana,Segoe,sans-serif;
+    font-size: 11pt; font-weight: bold; }
+.rb-StandardTitle .separator { font-size: 11pt; font-weight: bold; padding: 0px 6px 0px 3px; }
+
+/******************************************************
+  RSearchBox
+******************************************************/
+.rb-SearchBox { border: 1px solid #b5b8c8;
+    background: white url(../images/form/text-bg.gif) repeat-x 0 0; }
+.rb-SearchBox .inputCell { vertical-align: middle; }
+.rb-SearchBox .input { color: #333333; height: 19px; width: 150px; border: 0; }
+.rb-SearchBox .input-disabled { color: darkgray; background: transparent; }
+.rb-SearchBox .input-focused { border: 1px solid #7eadd9; }
+.rb-SearchBox .input-empty { color: #AAA; }
+.rb-SearchBox .buttonCell {}
+
+/******************************************************
+  RTextStyles
+******************************************************/
+.rb-style-emphasize { font-weight: bold; font-style: normal; }
+
+.rb-style-state-using { font-weight: bold; font-style: normal; color: #008000; }
+.rb-style-state-deleted { font-weight: bold; font-style: normal; color: #FF6347; }
+
+.rb-style-compare-new { background-color: #90EE90; text-decoration: none; }
+.rb-style-compare-old { background-color: #FFB6C1; text-decoration: line-through; }
+
+.rb-style-overview-title { 
+  font-family: ΢���ź�,Tahoma,Verdana,Segoe,sans-serif;
+  font-size: 12pt; 
+  font-weight: normal; 
+}
+
+.rb-style-bold { font-weight: bold; }
+.rb-style-italic { font-style: italic; }
+
+.rb-style-black { color: #000000; }
+.rb-style-darkgray { color: #A9A9A9; }
+.rb-style-gray { color: #808080; }
+.rb-style-white { color: #FFFFFF; }
+.rb-style-red { color: #FF0000; }
+.rb-style-orange { color: #FFA500; }
+.rb-style-yellow { color: #FFFF00; }
+.rb-style-green { color: #008000; }
+.rb-style-cyan { color: #00FFFF; }
+.rb-style-blue { color: #0000FF; }
+.rb-style-purple { color: #800080; }
+.rb-style-brown { color: #A52A2A; }
+
+/******************************************************
+  ROperateInfoPanel
+******************************************************/
+.rb-OperateInfoPanel { margin: 3px; }
+.rb-OperateInfoPanel .operator { font-weight: bold; }
+.rb-OperateInfoPanel .time { margin: 3px 0px 5px 0px; }
+.rb-OperateInfoPanel .deck { border-top: 1px solid darkgray; }
+.rb-OperateInfoPanel .loading { height: 50px; text-align: center; vertical-align: middle; }
+.rb-OperateInfoPanel .loading .inner { height: 16px; margin: 5px;
+    background: transparent url('../images/form/loading.gif') no-repeat 50% 50%; }
+.rb-OperateInfoPanel .empty { height: 50px; text-align: center; vertical-align: middle; }
+.rb-OperateInfoPanel .empty .inner { color: darkgray; margin: 5px; }
+.rb-OperateInfoPanel .contact {}
+.rb-OperateInfoPanel .contact .label { white-space: nowrap; padding-right: 3px; }
+.rb-OperateInfoPanel .contact .value {}

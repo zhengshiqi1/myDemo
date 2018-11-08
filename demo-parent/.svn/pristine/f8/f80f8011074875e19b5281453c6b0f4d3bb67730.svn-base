@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.hd123.demo.impl" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"
+		p:driverClassName="${demo-core.jdbc.driver:org.apache.derby.jdbc.AutoloadedDriver}" 
+		p:url="${demo-core.jdbc.url:jdbc:derby:demodb;create=true}"
+		p:username="${demo-core.jdbc.username:}" 
+		p:password="${demo-core.jdbc.password:}" 
+		p:initialSize="${demo-core.dataSource.initialSize:0}"
+		p:maxActive="${demo-core.dataSource.maxActive:100}" 
+		p:maxWait="${demo-core.dataSource.maxWait:-1}" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="demo-unit" />
+		<property name="loadTimeWeaver">
+			<bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">${demo-core.hibernate.dialect:org.hibernate.dialect.DerbyDialect}
+				</prop>
+				<prop key="hibernate.show_sql">${demo-core.hibernate.show_sql:false}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${demo-core.hibernate.hbm2ddl.auto:update}</prop>
+				<prop key="hibernate.default_schema">${demo-core.hibernate.default_schema:demo}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<!-- 自动更新索引 -->
+	<bean class="com.hd123.rumba.commons.jpa.spring.DbIndexInitializer">
+		<property name="dataSource" ref="dataSource" />
+		<property name="entityManagerFactoryInfo" ref="entityManagerFactory" />
+		<property name="indexBuilderClassName"
+			value="${demo-core.jpa.indexbuilder.classname:com.hd123.rumba.commons.jpa.index.DerbyDbIndexBuilder}" />
+	</bean>
+</beans>

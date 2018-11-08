@@ -1,0 +1,23 @@
+@FinalFields, false
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true, true, true, true, com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException/3936916533, 3936916533
+com.google.gwt.user.client.rpc.RpcTokenException, true, true, false, false, com.google.gwt.user.client.rpc.RpcTokenException/2345075298, 2345075298
+com.google.gwt.user.client.rpc.XsrfToken, false, false, true, true, com.google.gwt.user.client.rpc.XsrfToken/4254043109, 4254043109
+com.hd123.rumba.gwt.widget2.client.dialog.RDialogButtonClickListenerCollection, true, true, false, false, com.hd123.rumba.gwt.widget2.client.dialog.RDialogButtonClickListenerCollection/423900576, 423900576
+com.hd123.rumba.gwt.widget2.client.grid.RGridClickListenerCollection, true, true, false, false, com.hd123.rumba.gwt.widget2.client.grid.RGridClickListenerCollection/1496945547, 1496945547
+com.hd123.rumba.gwt.widget2.client.grid.RGridDrawListenerCollection, true, true, false, false, com.hd123.rumba.gwt.widget2.client.grid.RGridDrawListenerCollection/1426703968, 1426703968
+com.hd123.rumba.gwt.widget2.client.grid.RGridSortListenerCollection, true, true, false, false, com.hd123.rumba.gwt.widget2.client.grid.RGridSortListenerCollection/256343162, 256343162
+com.hd123.rumba.gwt.widget2.client.grid.RPagingGridListenerCollection, true, true, false, false, com.hd123.rumba.gwt.widget2.client.grid.RPagingGridListenerCollection/4135538067, 4135538067
+com.hd123.rumba.notice.gwt.channel.client.BChannel, true, true, false, false, com.hd123.rumba.notice.gwt.channel.client.BChannel/3944462074, 3944462074
+[Lcom.hd123.rumba.notice.gwt.channel.client.BChannel;, true, true, false, false, [Lcom.hd123.rumba.notice.gwt.channel.client.BChannel;/1779983567, 1779983567
+com.hd123.rumba.notice.gwt.channel.client.ChannelService, false, false, false, false, _, 2001849467
+java.lang.Exception, true, false, true, false, java.lang.Exception/1920171873, 1920171873
+java.lang.RuntimeException, true, false, true, false, java.lang.RuntimeException/515124647, 515124647
+java.lang.String, true, true, true, true, java.lang.String/2004016611, 2004016611
+java.lang.Throwable, true, false, true, false, java.lang.Throwable/2953622131, 2953622131
+java.util.ArrayList, true, true, false, false, java.util.ArrayList/4159755760, 4159755760
+java.util.Arrays$ArrayList, true, true, false, false, java.util.Arrays$ArrayList/2507071751, 2507071751
+java.util.Collections$EmptyList, true, true, false, false, java.util.Collections$EmptyList/4157118744, 4157118744
+java.util.Collections$SingletonList, true, true, false, false, java.util.Collections$SingletonList/1586180994, 1586180994
+java.util.LinkedList, true, true, false, false, java.util.LinkedList/3953877921, 3953877921
+java.util.Stack, true, true, false, false, java.util.Stack/1346942793, 1346942793
+java.util.Vector, true, true, false, false, java.util.Vector/3057315478, 3057315478

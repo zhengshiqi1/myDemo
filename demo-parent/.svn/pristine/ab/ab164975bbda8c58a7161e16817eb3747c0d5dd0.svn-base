@@ -1,0 +1,50 @@
+#native2ascii=false
+
+###################################################
+## DEMO配置
+###################################################
+## demo-server 服务地址
+demo.rest.url=http://localhost:8080/demo-server/rest
+demo.rest.username=guest
+demo.rest.password=guest
+
+#hdlicense服务地址
+demo-about.licenseServers=172.17.12.11:8088
+
+########################################################################
+##  CAS相关配置  
+########################################################################
+rumba-webframe.casServerName=http://172.17.12.11/ia-cas-server
+## CAS 登录地址
+rumba-webframe.casServerLoginUrl=http://172.17.12.11/ia-cas-server/login
+## CAS 注销策略
+demo.logout.url=http://172.17.12.11/ia-cas-server/logout
+## CAS服务地址
+ia-cas-server-api.url=http://172.17.12.11/ia-cas-server/rest/
+## 服务地址，如果使用代理服务，这里是代理服务器地址，不需要加上应用名称
+rumba-webframe.serverName=http://localhost
+
+########################################################################
+## IA服务配置
+########################################################################
+#IA审计服务地址、访问用户、访问口令
+ia-audit-transport.server.url=http://172.17.12.11/ia-audit-server
+ia-audit-transport.server.user=yourapp-name
+ia-audit-transport.server.password=yourapp-password
+
+ia-audit-api.configFile=classpath:demo-web.properties
+ia-audit-api.rootNamespace=/HDCRE
+ia-audit-api.logger.*=include
+ia-audit-api.logger.com.hd123.ia.audit.logger.AuditLogger=exclude
+
+#IA认证服务地址、访问用户、访问口令172.17.3.7:8090
+ia-authen-transport.server.url=http://172.17.12.11/ia-authen-server/
+ia-authen-transport.server.user=yourapp-name
+ia-authen-transport.server.password=yourapp-password
+
+#IA授权服务地址、访问用户、访问口令
+ia-author-transport.server.url=http://172.17.12.11/ia-author-server/
+ia-author-transport.server.user=yourapp-name
+ia-author-transport.server.password=yourapp-password
+# 来源应用系统实例名称。
+ia-author-api.appInstance=/HDCRE

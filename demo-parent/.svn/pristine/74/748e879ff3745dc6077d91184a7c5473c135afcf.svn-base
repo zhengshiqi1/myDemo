@@ -1,0 +1,64 @@
+#native2ascii=false
+
+###################################################
+#
+# 调用IA服务配置
+#
+###################################################
+# 设置AuditLogger的配置文件。
+ia-audit-api.configFile=classpath:demo-server.properties
+#######################################################################
+# 提供按命名空间过滤审计日志的功能：
+# 1.当审计日志的命名空间满足任何一个包含条件、并且不满足任何排除条件时才会发送。
+# 2.如果要增加包含条件，需要增加一行“ia-audit-api.logger.<命名空间>=include”。
+# 3.如果要增加排除条件，需要增加一行“ia-audit-api.logger.<命名空间>=exclude”。
+# 4.命名空间是java类名的形式，AuditLogger会自动将“.”符号转换为“/”。命令空间支持
+#   通配符“*”和“?”，前者代表任意长度的字符串，后者代表任意一个字符。
+#######################################################################
+# 日志过滤器配置前缀。
+#ia-audit-api.filterPrefix=ia-audit-api.logger.
+ia-audit-api.logger.*=include
+ia-audit-api.logger.com.hd123.ia.audit.logger.AuditLogger=exclude
+
+# 审计服务地址
+ia-audit-transport.server.url=http://172.18.1.50/ia-audit-server/
+# 审计服务远程访问用户
+ia-audit-transport.server.user=yourapp-name
+# 审计服务远程访问口令
+ia-audit-transport.server.password=yourapp-password
+# 审计服务SSL证书访问路径
+#ia-audit-transport.server.ssl.keyStoreFile=
+# 审计服务SSL证书访问密码
+#ia-audit-transport.server.ssl.keyStorePassword=
+# 审计服务SSL使用的Key的密码
+#ia-audit-transport.server.ssl.keyPassword=
+
+###################################################
+#
+# 数据库连接配置
+#
+###################################################
+# 驱动，这边链接Oracle，所以选择Oracle驱动
+demo-core.jdbc.driver=oracle.jdbc.driver.OracleDriver
+# 连接配置，oracle的链接配置格式为：jdbc:oracle:thin:@host:1521:dnName
+demo-core.jdbc.url=jdbc:oracle:thin:@172.18.1.50:1521:orcl
+# 数据库登录名
+demo-core.jdbc.username=chenrizhang
+# 数据库密码
+demo-core.jdbc.password=chenrizhang
+#初始数据库连接数，默认为0。无需修改
+demo-core.dataSource.initialSize=0
+# 数据库最大连接数，无需修改。
+demo-core.dataSource.MaxActive=100
+# 数据库访问超时，单位：毫秒。设为-1会一直等待
+demo-core.dataSource.MaxWait=-1
+# 数据库方言，这边使用Oracle方言
+demo-core.hibernate.dialect=com.hd123.rumba.commons.jpa.h3.OracleDialect
+# 是否显示sql。当值为true时，进行查询会将sql语句在控制台打印出来
+demo-core.hibernate.show_sql=true
+# 表更新测试，可选值：update、create、none
+demo-core.hibernate.hbm2ddl.auto=update
+# 默认数据库方案，通常与用户名相同。
+demo-core.hibernate.default_schema=chenrizhang
+# 索引构造器。
+demo-core.jpa.indexbuilder.classname=com.hd123.rumba.commons.jpa.index.OracleDbIndexBuilder

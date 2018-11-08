@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="[ demo-dt ] Development Tool" basedir="../.." xmlns:mvn="antlib:org.apache.maven.artifact.ant">
+
+  <mvn:pom id="pom" file="pom.xml" />
+  <taskdef resource="net/sf/antcontrib/antlib.xml">
+    <classpath>
+      <pathelement location="src/dt/lib/ant-contrib.jar" />
+    </classpath>
+  </taskdef>
+
+  <property environment="env" />
+  <property file="src/dt/public-settings.properties" />
+  <import file="filter.xml" />
+
+  <!-- ================================= 
+    target: +tomcat-deploy
+    | 部署到Tomcat应用服务器
+    | public-settings: tomcat.webapps
+  ================================= -->
+  <target name="+tomcat-deploy">
+    <if>
+      <available file="${tomcat.webapps}/demo-server" type="dir" property="deploy.dir.present" />
+      <then>
+        <copy todir="${tomcat.webapps}/demo-server" filtering="true" overwrite="true" encoding="utf-8">
+          <fileset dir="src/dt/resources/demo-server.war">
+            <include name="**/*.properties" />
+          </fileset>
+          <filterset refid="myfilter" />
+        </copy>
+      </then>
+      <else>
+        <echo>${tomcat.webapps}/demo-server not exists, skipped.</echo>
+      </else>
+    </if>
+    <if>
+      <available file="${tomcat.webapps}/demo-web" type="dir" property="deploy.dir.present" />
+      <then>
+        <copy todir="${tomcat.webapps}/demo-web" filtering="true" overwrite="true" encoding="utf-8">
+          <fileset dir="src/dt/resources/demo-web.war">
+            <include name="**/*.properties" />
+          </fileset>
+          <filterset refid="myfilter" />
+        </copy>
+      </then>
+      <else>
+        <echo>${tomcat.webapps}/demo-web not exists, skipped.</echo>
+      </else>
+    </if>
+  </target>
+
+</project>

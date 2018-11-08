@@ -1,0 +1,20 @@
+.#{$prefix}form-display-field-default {
+  min-height: 21px;
+}
+
+@include extjs-display-field-ui(
+        $ui: 'link'
+);
+
+.#{$prefix}form-display-field-link {
+  min-height: 21px !important;
+  cursor: pointer !important;
+  color: #4e97ff !important;
+  text-decoration: none !important;
+}
+
+.#{$prefix}form-display-field-link:hover {
+  cursor: pointer !important;
+  color: #4e97ff !important;
+  text-decoration: underline !important;
+}

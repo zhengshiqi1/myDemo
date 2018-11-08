@@ -1,0 +1,32 @@
+/**
+ * Created by cRazy on 2016/10/11.
+ */
+Ext.define('demo.view.main.Catalog', {
+    extend: 'Ext.panel.Panel',
+    xtype: 'catalog',
+
+    requires: [
+        'Cxt.util.Window',
+        'Ext.button.Button',
+        'Ext.layout.container.VBox',
+        'Ext.panel.Panel',
+    ],
+
+    title: '目录',
+    layout: 'vbox',
+    bodyPadding: 10,
+
+    tbar: [{
+        xtype: 'button',
+        text: '商品',
+        handler: function () {
+            Cxt.util.Window.moduleRedirectTo(demo.view.product.Product.moduleId, 'search');
+        }
+    },{
+        xtype: 'button',
+        text: '订单',
+        handler: function () {
+            Cxt.util.Window.moduleRedirectTo(demo.view.order.Order.moduleId, 'search');
+        }
+    }]
+}); 

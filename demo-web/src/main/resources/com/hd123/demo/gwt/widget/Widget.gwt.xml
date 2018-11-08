@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <inherits name='com.hd123.rumba.webframe.gwt.base.Base' />
+  <inherits name='com.hd123.rumba.commons.gwt.event.Event' />
+  <stylesheet src="css/widget2e.css" />
+</module>

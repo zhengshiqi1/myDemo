@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<!-- module XML 文件 -->
+	<!-- 它包含了GWT模块定义，资源集和一个shared包。
+	 默认下，模块继承了每个项目都必需的GWT核心模块；除此，你也可以指定继承一些其他的模块 -->
+	<!-- 在这个文件里，指定了当前工程的入口类。 
+	为了编译，一个GWT模块必须有一个入口；如果没有，则此模块只能被用作给其他模块继承。 
+	虽然可以包含一些其他的、已经在它们内部定义了入口(Entry Point)的模块，
+	如果这样，那当前模块就同时拥有了多个入口， 每个入口将会顺序执行。但是我们不推荐这样做 -->
+
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<!-- 每一个GWT工程都必须继承com.google.gwt.user.User，这是核心 -->  
+    <inherits name='com.google.gwt.user.User'/>  
+  
+	<!--模块配置的XML文件应该在JAVA的类加载路径里面。模块总是通过他们的逻辑名被引用。模块的逻辑名是这样的：包名1.包名2.模块名。
+	逻辑名并不用反映实际的文件系统路径和文件扩展名。如下，假如一个模块的XML文件：	~/src/com/example/cal/Calendar.gwt.xml
+	那么对应的逻辑名可以是：com.example.cal.Calendar 
+	-->
+	<!--从指定的模块继承所有的设置。这样做时间上是将所有的设置都复制的当前的这个文件。可以继承的模块数量不限。 -->
+    <inherits name='com.hd123.rumba.gwt.util.Util' />
+    <inherits name='com.hd123.rumba.commons.gwt.mini.Mini' />
+    <inherits name='com.hd123.rumba.commons.gwt.entity.Entity' />
+    <inherits name='com.hd123.rumba.webframe.gwt.entrypoint.EntryPoint' />
+    <inherits name='com.hd123.rumba.webframe.gwt.audit.Audit' />
+    <inherits name='com.hd123.demo.gwt.product.intf.ProductIntf' />
+    <inherits name='com.hd123.ia.widget.base.Base' />
+    <inherits name='com.hd123.ia.widget.audit.AuditWidget' />
+    <inherits name='com.hd123.rumba.gwt.flecs.Flecs' />
+    <inherits name='com.hd123.rumba.gwt.flecs.prefs.FlecsPrefs' />
+    <inherits name='com.hd123.rumba.webframe.gwt.noauthorized.intf.NoAuthorizedIntf' />
+    <inherits name='com.hd123.demo.gwt.widget.Widget' />
+    <inherits name='com.hd123.demo.gwt.util.Util' />
+   <!--
+    <inherits name='com.hd123.rumba.webframe.gwt.base.Base' />
+ -->
+    <extend-property name="locale" values="zh_CN" />
+
+	<!-- 定义一个入口类。可以定义任意数量的入口，当然被继承过来的入口同样有效。	同一个有效域内的所有的入口都被编译到同一个代码库。
+	并且，被按照出现在配置文件中的顺序依次的被各自的onModuleLoad()方法加载。 -->
+	<entry-point class="com.hd123.demo.gwt.product.client.EPProduct" />
+	
+	<!-- 为了便于RPC测试，这个标签定义了一个servlet并将之绑定到一个URL，
+	但是请注意，和在web.xml中定义不同：
+	 1。此处要求URL的末尾必须是一个目录而不是”/”。
+	在客户端代码中， 你可以指定一个调用位置，用ServiceDefTarget.setServiceEntryPoint(String)。	这里对加载的servlet的数量没有限制。
+	2。这个地方的定义只对GWT的内置服务器的服务器端的调试起作用。  -->
+	<servlet path="/product" class='com.hd123.demo.gwt.product.server.ProductServiceServlet' />
+
+</module>

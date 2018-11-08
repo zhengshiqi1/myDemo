@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 版权所有(C)，上海海鼎信息工程股份有限公司，2013，所有权利保留。 -->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <display-name>DEMO</display-name>
+
+  <!-- 上下文配置文件 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:demo-web.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!-- CAS 配置 -->
+  <filter>
+    <filter-name>CAS Single Sign Out Filter</filter-name>
+    <filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CAS Single Sign Out Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CAS Single Sign Out Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>CAS Filter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+      <param-name>targetBeanName</param-name>
+      <!-- 这里定义spring bean -->
+      <param-value>rumba-webframe.casAuthenticationFilter</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CAS Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CAS Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>CAS Validation Filter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+      <param-name>targetBeanName</param-name>
+      <!-- 这里定义spring bean -->
+      <param-value>rumba-webframe.casValidationFilter</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CAS Validation Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CAS Validation Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+    <filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>Web-Frame CAS Wrapper Filter</filter-name>
+    <filter-class>com.hd123.rumba.webframe.cas.CASWrapperFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Web-Frame CAS Wrapper Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Web-Frame CAS Wrapper Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+  <!-- end of CAS 配置 -->
+
+  <servlet>
+    <servlet-name>static</servlet-name>
+    <servlet-class>com.hd123.rumba.webframe.request.StaticServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>static</servlet-name>
+    <url-pattern>/www/static/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>static</servlet-name>
+    <url-pattern>/www2/static/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>com.hd123.rumba.gwt.widget2.server.UploadServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>gwtmodule</servlet-name>
+    <servlet-class>com.hd123.rumba.webframe.request.GWTModuleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gwtmodule</servlet-name>
+    <url-pattern>/www/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>gwtmodule</servlet-name>
+    <url-pattern>/www2/*</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Rumba 身份认证过滤器 -->
+  <filter>
+    <filter-name>Rumba Authentication Filter</filter-name>
+    <filter-class>com.hd123.demo.filter.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Rumba Authentication Filter</filter-name>
+    <url-pattern>/www/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>Rumba Authentication Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <!-- 支持跨域AJAX请求 -->
+  <filter>
+    <filter-name>CROS Filter</filter-name>
+    <filter-class>com.hd123.demo.filter.CORSFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CROS Filter</filter-name>
+    <url-pattern>*.hd</url-pattern>
+  </filter-mapping>
+
+  <!-- Spring-Mvc 控制器 -->
+  <servlet>
+    <servlet-name>DEMO Dispatcher Servlet</servlet-name>
+    <servlet-class>com.hd123.demo.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:/META-INF/demo-webmvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DEMO Dispatcher Servlet</servlet-name>
+    <url-pattern>*.hd</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <servlet-class>com.hd123.ia.ui.widget.server.captcha.CaptchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <url-pattern>/captcha.jpg</url-pattern>
+  </servlet-mapping>
+
+  <!-- 应用系统图标资源Servlet -->
+  <servlet>
+    <servlet-name>IACASImageServlet</servlet-name>
+    <servlet-class>com.hd123.ia.cas.servlet.ImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IACASImageServlet</servlet-name>
+    <url-pattern>/iacas/images/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- TOMCAT 压缩过滤 -->
+  <filter>
+    <filter-name>ExpiresFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+    <init-param>
+      <param-name>ExpiresByType image</param-name>
+      <param-value>access plus 1 days</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ExpiresByType text/css</param-name>
+      <param-value>access plus 1 days</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ExpiresByType application/javascript</param-name>
+      <param-value>access plus 1 days</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>ExpiresFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+</web-app>

@@ -1,0 +1,6 @@
+<module>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.hd123.rumba.gwt.util.Util' />
+
+	<extend-property name="locale" values="zh_CN" />
+</module>

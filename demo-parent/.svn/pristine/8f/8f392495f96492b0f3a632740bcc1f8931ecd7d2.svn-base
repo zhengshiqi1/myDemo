@@ -1,0 +1,30 @@
+#native2ascii=false
+###################################################
+#
+# 数据库连接配置
+#
+###################################################
+# 驱动，这边链接Oracle，所以选择Oracle驱动
+demo-core.jdbc.driver=oracle.jdbc.driver.OracleDriver
+# 连接配置，oracle的链接配置格式为：jdbc:oracle:thin:@host:1521:dnName
+demo-core.jdbc.url=jdbc:oracle:thin:@localhost:1521:dnName
+# 数据库登录名
+demo-core.jdbc.username=demo
+# 数据库密码
+demo-core.jdbc.password=demo
+#初始数据库连接数，默认为0。无需修改
+demo-core.dataSource.initialSize=0
+# 数据库最大连接数，无需修改。
+demo-core.dataSource.MaxActive=100
+# 数据库访问超时，单位：毫秒。设为-1会一直等待
+demo-core.dataSource.MaxWait=-1
+# 数据库方言，这边使用Oracle方言
+demo-core.hibernate.dialect=com.hd123.rumba.commons.jpa.h3.OracleDialect
+# 是否显示sql。当值为true时，进行查询会将sql语句在控制台打印出来
+demo-core.hibernate.show_sql=true
+# 表更新测试，可选值：update、create、none
+demo-core.hibernate.hbm2ddl.auto=update
+# 默认数据库方案，通常与用户名相同。
+demo-core.hibernate.default_schema=demo
+# 索引构造器。
+demo-core.jpa.indexbuilder.classname=com.hd123.rumba.commons.jpa.index.OracleDbIndexBuilder

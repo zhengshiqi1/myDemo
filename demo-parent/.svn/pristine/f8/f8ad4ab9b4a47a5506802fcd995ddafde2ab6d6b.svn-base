@@ -1,0 +1,61 @@
+@include extjs-label-ui(
+        $ui: 'singletag'
+);
+@include extjs-text-field-ui(
+        $ui: 'singletag'
+);
+@include extjs-tag-field-ui(
+        $ui: 'singletag',
+        $ui-item-background-color: #FFFFFF,
+        $ui-item-over-background-color: #FFFFFF,
+        $ui-item-selected-background-color: #FFFFFF,
+        $ui-item-border-width: 0
+);
+.#{$prefix}singletag-item-text {
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.#{$prefix}singletag-item {
+  padding: 0 0 0 5px !important;
+  margin: 1px 3px 1px 0 !important;
+  line-height: 19px !important;
+}
+
+.#{$prefix}singletag-singleselect {
+  line-height: 21px !important;
+  min-height: 21px !important;
+}
+
+.#{$prefix}singletag-input {
+  margin: 0 !important;
+  line-height: 21px !important;
+  min-height: 21px !important;
+}
+
+@include extjs-label-ui(
+        $ui: 'multitag'
+);
+@include extjs-text-field-ui(
+        $ui: 'multitag'
+);
+@include extjs-tag-field-ui(
+        $ui: 'multitag'
+);
+
+.#{$prefix}multitag-item {
+  background-color: #CFE3F5 !important;
+  line-height: 18px !important;
+}
+
+.#{$prefix}multitag-item-close {
+  top: 2px !important;
+  font: 14px/1 FontAwesome !important;
+
+  &:before {
+    color: #4e97ff;
+    content: "\f057" !important;
+  }
+}

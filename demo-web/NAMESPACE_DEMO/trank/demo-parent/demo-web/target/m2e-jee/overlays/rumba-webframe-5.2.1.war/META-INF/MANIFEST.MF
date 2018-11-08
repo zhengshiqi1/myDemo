@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Shanghai HEADING Information Engineering Co., L
+ td.
+Implementation-Title: WebFrame
+Implementation-Version: 5.2.1
+Implementation-Vendor-Id: com.hd123.rumba.webframe
+Built-By: lxm
+Build-Jdk: 1.7.0_75
+Class-Path: rumba-widget2-2.4.2.jar commons-fileupload-1.2.1.jar commo
+ ns-io-1.4.jar tapestry-framework-4.1.5.jar javassist-3.6.ga.jar hivem
+ ind-1.1.1.jar hivemind-lib-1.1.1.jar oro-2.0.8.jar commons-codec-1.3.
+ jar ognl-2.7.2.jar commons-beanutils-1.7.0.jar commons-lang-2.3.jar c
+ ommons-pool-1.4.jar backport-util-concurrent-3.1.jar gwt-servlet-2.7.
+ 0.jar gwt-user-2.7.0.jar validation-api-1.0.0.GA.jar validation-api-1
+ .0.0.GA-sources.jar requestfactory-server-2.7.0.jar ia-audit-api-5.4.
+ 1-RC.jar aspectjrt-1.6.10.jar ia-authen-api-5.4.1-RC.jar rumba-common
+ s-prefs-2.3.jar ia-author-api-5.4.1-RC.jar commons-collections-3.2.1.
+ jar ia-author-transport-5.4.1-RC.jar ia-about-5.4.1-RC.jar ia-authen-
+ transport-5.4.1-RC.jar rumba-commons-prefs-rs-2.1.jar rumba-commons-r
+ s-1.8.jar jackson-core-asl-1.9.11.jar jackson-jaxrs-1.9.11.jar jackso
+ n-mapper-asl-1.9.11.jar jackson-xc-1.9.11.jar cxf-bundle-jaxrs-2.7.0.
+ jar woodstox-core-asl-4.1.4.jar stax2-api-3.1.1.jar xmlschema-core-2.
+ 0.3.jar geronimo-javamail_1.4_spec-1.7.1.jar wsdl4j-1.6.2.jar jaxb-im
+ pl-2.1.13.jar jetty-server-8.1.7.v20120910.jar jetty-continuation-8.1
+ .7.v20120910.jar jetty-http-8.1.7.v20120910.jar jetty-io-8.1.7.v20120
+ 910.jar jetty-util-8.1.7.v20120910.jar jetty-security-8.1.7.v20120910
+ .jar geronimo-servlet_3.0_spec-1.0.jar javax.ws.rs-api-2.0-m10.jar sp
+ ring-security-core-3.2.2.RELEASE.jar aopalliance-1.0.jar ia-cas-serve
+ r-api-5.4.1-RC.jar ia-cas-widget-gwt2-5.4.1-RC.jar ia-ui-widget-gwt2-
+ 5.4.1-RC.jar jcaptcha-2.0-alpha-1.jar filters-2.0.235.jar jcaptcha-ap
+ i-2.0-alpha-1.jar heading-license-1.0.2.jar rumba-commons-biz-1.7.jar
+  rumba-commons-gwt-2.1.jar rumba-commons-mini-1.9.jar javassist-3.6.0
+ .GA.jar pinyin4j-2.5.0.jar rumba-commons-rpc-1.3.jar rumba-notice-gwt
+ 2-1.2.jar rumba-notice-api-1.2.jar rumba-notice-mail-api-1.2.jar rumb
+ a-notice-sms-api-1.2.jar commons-lang3-3.1.jar slf4j-api-1.7.2.jar sp
+ ring-core-3.2.8.RELEASE.jar commons-logging-1.1.3.jar spring-beans-3.
+ 2.8.RELEASE.jar spring-context-3.2.8.RELEASE.jar spring-aop-3.2.8.REL
+ EASE.jar spring-expression-3.2.8.RELEASE.jar spring-web-3.2.8.RELEASE
+ .jar cas-client-core-3.2.1.jar
+Specification-Vendor: Shanghai HEADING Information Engineering Co., Lt
+ d.
+Specification-Title: WebFrame
+Created-By: Apache Maven 3.2.5
+Specification-Version: 5.2.1
+Archiver-Version: Plexus Archiver
+

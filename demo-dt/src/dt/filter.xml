@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="[demo-dt]filter" basedir="../..">
+
+  <filterset id="myfilter">
+    <!-- 数据库连接 -->
+    <filter token="demo-core.jdbc.driver" value="${demo-core.jdbc.driver}" />
+    <filter token="demo-core.jdbc.url" value="${demo-core.jdbc.url}" />
+    <filter token="demo-core.jdbc.username" value="${demo-core.jdbc.username}" />
+    <filter token="demo-core.jdbc.password" value="${demo-core.jdbc.password}" />
+    <filter token="demo-core.hibernate.dialect" value="${demo-core.hibernate.dialect}" />
+    <filter token="demo-core.hibernate.show_sql" value="${demo-core.hibernate.show_sql}" />
+    <filter token="demo-core.hibernate.hbm2ddl.auto" value="${demo-core.hibernate.hbm2ddl.auto}" />
+    <filter token="demo-core.hibernate.default_schema" value="${demo-core.hibernate.default_schema}" />
+    <filter token="demo-core.jpa.indexbuilder.classname" value="${demo-core.jpa.indexbuilder.classname}" />
+
+    <filter token="demo.rest.url" value="${demo.rest.url}" />
+    <filter token="demo.rest.username" value="${demo.rest.username}" />
+    <filter token="demo.rest.password" value="${demo.rest.password}" />
+
+    <filter token="demo.logout.url" value="${demo.logout.url}" />
+    <filter token="demo.appInstance" value="${demo.appInstance}" />
+    <!-- ia 连接 -->
+    <filter token="ia-audit-transport.server.url" value="${ia-audit-transport.server.url}" />
+    <filter token="ia-authen-transport.server.url" value="${ia-authen-transport.server.url}" />
+    <filter token="ia-author-transport.server.url" value="${ia-author-transport.server.url}" />
+    <filter token="ia-cas-server-api.url" value="${ia-cas-server-api.url}" />
+    <filter token="ia-web.app.iacas-server.url" value="${ia-web.app.iacas-server.url}" />
+    <!-- 媒体服务器 -->
+    <filter token="mediaservice.url" value="${mediaservice.url}" />
+  </filterset>
+
+</project>

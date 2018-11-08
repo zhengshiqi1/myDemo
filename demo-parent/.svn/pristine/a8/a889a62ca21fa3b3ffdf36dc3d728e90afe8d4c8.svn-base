@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:http="http://cxf.apache.org/transports/http/configuration"
+  xmlns:sec="http://cxf.apache.org/configuration/security"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://cxf.apache.org/jaxrs
+    http://cxf.apache.org/schemas/jaxrs.xsd
+    http://cxf.apache.org/transports/http/configuration
+    http://cxf.apache.org/schemas/configuration/http-conf.xsd
+    http://cxf.apache.org/configuration/security
+    http://cxf.apache.org/schemas/configuration/security.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+
+  <http:conduit name="http://.*/demo-server/.*">
+    <http:authorization>
+      <sec:UserName>${demo.rest.username:guest}</sec:UserName>
+      <sec:Password>${demo.rest.password:guest}</sec:Password>
+    </http:authorization>
+    <http:client ConnectionTimeout="300000" ReceiveTimeout="300000" />
+  </http:conduit>
+  <http:conduit name="https://.*/demo-server/.*">
+    <http:tlsClientParameters>
+      <sec:keyManagers keyPassword="${demo.rest.ssl.keyPassword:}">
+        <sec:keyStore type="JKS" password="${demo.rest.ssl.keyStorePassword:}" file="${demo.rest.ssl.keyStoreFile:}" />
+      </sec:keyManagers>
+    </http:tlsClientParameters>
+    <http:authorization>
+      <sec:UserName>${demo.rest.username:guest}</sec:UserName>
+      <sec:Password>${demo.rest.password:guest}</sec:Password>
+    </http:authorization>
+    <http:client ConnectionTimeout="300000" ReceiveTimeout="300000" />
+  </http:conduit>
+
+  <bean id="annotationIntrospector" class="org.codehaus.jackson.xc.JaxbAnnotationIntrospector">
+  </bean>
+
+  <bean id="jsonDateFormat" class="java.text.SimpleDateFormat">
+    <constructor-arg value="yyyy-MM-dd'T'HH:mm:ss.SSSZ" />
+  </bean>
+
+  <bean id="demo-api.jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
+    <property name="mapper">
+      <bean class="org.codehaus.jackson.map.ObjectMapper">
+        <property name="serializationConfig.dateFormat" ref="jsonDateFormat" />
+        <property name="serializationConfig.annotationIntrospector" ref="annotationIntrospector" />
+        <property name="deserializationConfig.dateFormat" ref="jsonDateFormat" />
+        <property name="deserializationConfig.annotationIntrospector" ref="annotationIntrospector" />
+      </bean>
+    </property>
+  </bean>
+
+  <!--ProductService -->
+  <jaxrs:client id="demo-api.rs.productService" address="${demo.rest.url:http://localhost:8080/demo-server/}"
+    serviceClass="com.hd123.demo.rs.service.product.RSProductService">
+    <jaxrs:providers>
+      <ref bean="demo-api.jsonProvider" />
+    </jaxrs:providers>
+  </jaxrs:client>
+  <bean id="demo-api.productService" class="com.hd123.demo.rs.proxy.product.ProductServiceRSProxy"
+    p:rsProductService-ref="demo-api.rs.productService" />
+</beans>

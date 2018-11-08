@@ -1,0 +1,1454 @@
+/*
+ * 版权所有(C)，上海海鼎信息工程股份有限公司，2013，所有权利保留。
+ */
+@charset "UTF-8";
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: Microsoft YaHei, Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 9pt;
+}
+
+table,tr,td,p,input,textarea,select,div {
+	font-family: Microsoft YaHei, Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 9pt;
+}
+
+.rbm-MainFrame {
+	background: #F5FAFF url("../images/mainframe/bg.jpg") repeat-x 0px 0px;
+	margin: 0px;
+}
+
+.rbm-rootTable {
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-rootTable .rbm-licenseBarCell {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: transparent;
+}
+
+.rbm-rootTable .rbm-topBarCell {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	background-color: #3a5cbc;
+}
+
+.rbm-rootTable .rbm-sitePanelCell {
+	width: 1px;
+	background: transparent;
+}
+
+.rbm-rootTable .rbm-centerPanelCell {
+	height: 100%;
+	background: transparent;
+}
+
+/***********************************LicenseBar***********************************/
+.rbm-LicenseBar {
+	width: 100%;
+	height: 24px;
+	padding: 0px;
+	margin: 0px;
+	background: #FFE8E0 url('../images/mainframe/warning.gif') no-repeat
+		20px 4px;
+}
+
+.rbm-LicenseBar .rbm-message {
+	padding: 3px 0px 4px 40px;
+}
+
+/*************************************TopBar*************************************/
+.rbm-topBar {
+	width: 100%;
+	height: 100%;
+	background-color: #3a5cbc;
+	padding: 0px;
+	margin: 0px;
+	table-layout: fixed;
+}
+
+.rbm-topBar  .caption {
+	color: #ffffff;
+}
+
+.rbm-topBar .rb-Toolbar {
+	background-color: transparent;
+	background-image: none;
+	border-bottom: none;
+	padding: 0px;
+}
+
+.rbm-topBar .rbm-logoCell {
+	width: 200px;
+	padding: 0px;
+	height: 60px;
+}
+
+.rbm-topBar .rbm-logo {
+	cursor: pointer;
+	cursor: hand;
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-topBar .rbm-menuBarCell {
+	padding: 0px;
+	margin: 0px;
+	height: 60px;
+}
+
+.rbm-topBar .rbm-toolBarCell {
+	width: 310px;
+	height: 26px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.rbm-topBar .rbm-menuBarCell .caption {
+	font-size: 15px;
+	line-height: 1px;
+}
+
+.rb-PopupMenu .menu {
+	margin-top: -1px;
+}
+
+.rbm-topBar .rb-Toolbar div.moreButton img {
+	width: auto;
+}
+
+/*********************************************TopBar Menu RToolbarButton***********************************/
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarButton {
+	padding: 0px 24px 0px 24px;
+	margin: 0px;
+	height: 60px;
+	border-radius: 0px;
+	border: solid #3a5cbc;
+	border-width: 0px 1px 0px 1px;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarButton-hover {
+	*background: #4d7eec;
+	*padding: 0px 24px 0px 24px;
+	*border: solid #3657b8;
+	*border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarButton-hover:hover {
+	background: #4d7eec;
+	padding: 0px 24px 0px 24px;
+	border: solid #3657b8;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarButton-mouseDown,.rbm-topBar .rbm-menuBarCell .rb-ToolbarButton-mouseDown:hover
+	{
+	background: #2e50b3;
+	padding: 0px 24px 0px 24px;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+}
+
+/*********************************TopBar Menu RToolbarMenuButton*****************************************/
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton {
+	margin: 0px;
+	padding: 0px 24px;
+	height: 60px;
+	border: solid #3a5cbc;
+	border-width: 0px 1px 0px 1px;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton-hover {
+	*background: #4d7eec;
+	*padding: 0px 24px;
+	*border: solid #3657b8;
+	*border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton:hover {
+	background: #4d7eec;
+	padding: 0px 24px;
+	border: solid #3657b8;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton-mouseDown,.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton-mouseDown:hover
+	{
+	background: #2e50b3;
+	padding: 0px 24px;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton-down {
+	background: #2e50b3 none;
+	padding: 0px 24px;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton-downHover {
+	background: #2e50b3 none !important;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton .downArrow div {
+	background: url(../images/mainframe/menuBtnTriangle.gif) no-repeat
+		center center;
+	margin-left: 6px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarMenuButton .downArrow {
+	background: none;
+}
+
+/*********************************TopBar Menu RToolbarSeparator*****************************************/
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSeparator {
+	background: url("../images/mainframe/menuSeparator.gif") no-repeat
+		center;
+	width: 13px;
+}
+/*********************************TopBar Menu RToolbarSplitButton*****************************************/
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton {
+	padding: 0px;
+	height: 60px;
+	margin: 0px;
+	border-style: none;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton .rb-Button {
+	padding: 0px 8px 0px 8px;
+	border: solid #3a5cbc;
+	border-width: 0px 1px 0px 1px;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton .rb-MenuButton {
+	padding: 0px 6px 0px 6px;
+	border: solid #3a5cbc;
+	border-width: 0px 1px 0px 1px;
+	border-radius: 0px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton .rb-MenuButton .downArrow
+	{
+	background: url(../images/mainframe/menuBtnTriangle.gif) no-repeat
+		center center;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover {
+	border-style: none;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-Button {
+	padding: 0px 8px 0px 8px;
+	background: #3f67d6 none;
+	border: solid #3253b4;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-Button-hover
+	{
+	*background: #4d7eec none;
+	*border: solid #3657b8;
+	*border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-Button-hover:hover
+	{
+	background: #4d7eec none;
+	border: solid #3657b8;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton
+	{
+	padding: 0px 6px 0px 6px;
+	background: #3f67d6 none;
+	border: solid #3253b4;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton-hover
+	{
+	*background: #4d7eec none;
+	*border: solid #3657b8;
+	*border-width: 0px 1px 0px 1px;
+	*margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton-hover:hover
+	{
+	background: #4d7eec none;
+	border: solid #3657b8;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button-mouseDown,.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button-mouseDown:hover
+	{
+	background: #2e50b3 none;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton
+	{
+	padding: 0px 6px 0px 6px;
+	background: #3f67d6 none;
+	border: solid #3253b4;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton-mouseDown,.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton-mouseDown:hover
+	{
+	background: #2e50b3 none;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button
+	{
+	background: #3f67d6 none;
+	border: solid #3253b4;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down {
+	border-style: none;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down .rb-Button {
+	padding: 0px 8px 0px 8px;
+	background: #3f67d6 none;
+	border: solid #3253b4;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down .rb-Button-hover:hover
+	{
+	background: #4d7eec none;
+	border: solid #3657b8;
+	border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down .rb-Button-hover
+	{
+	*background: #4d7eec none;
+	*border: solid #3657b8;
+	*border-width: 0px 1px 0px 1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down .rb-MenuButton-down
+	{
+	padding: 0px 6px 0px 6px;
+	background: #2e50b3 none;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-menuBarCell .rb-ToolbarSplitButton-down .rb-MenuButton-downHover
+	{
+	background: #2e50b3 none !important;
+	border: solid #2448b6;
+	border-width: 0px 1px 0px 1px;
+	margin-left: -1px;
+}
+
+/********************************************TopBar Tool********************************************************/
+.rbm-topBar .rbm-toolBarCell .caption {
+	font-size: 13px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ButtonBase {
+	height: 60px;
+}
+
+/*********************************************TopBar Tool RToolbarButton***********************************/
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarButton {
+	padding: 0px 14px;
+	margin: 0px 3px;
+	heigth: 26px;
+	border: 1px solid #3a5cbc;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarButton-hover {
+	*background: #568af7;
+	*padding: 0px 14px;
+	*margin: 0px 3px;
+	*border: 1px solid #2e4fae;
+	*border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarButton-hover:hover {
+	background: #568af7;
+	padding: 0px 14px;
+	margin: 0px 3px;
+	border: 1px solid #2e4fae;
+	border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarButton-mouseDown,.rbm-topBar .rbm-toolBarCell .rb-ToolbarButton-mouseDown:hover
+	{
+	background: #2d4eb2;
+	padding: 0px 14px;
+	margin: 0px 3px;
+	border: 1px solid #2245b3;
+	border-radius: 3px;
+}
+
+/*********************************TopBar Tool RToolbarMenuButton*****************************************/
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton {
+	padding: 0px 14px;
+	margin: 0px 3px;
+	height: 26px;
+	border: 1px solid #3a5cbc;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton-hover {
+	*background: #568af7;
+	*padding: 0px 14px;
+	*margin: 0px 3px;
+	*border: 1px solid #2e4fae;
+	*border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton:hover {
+	background: #568af7;
+	padding: 0px 14px;
+	margin: 0px 3px;
+	border: 1px solid #2e4fae;
+	border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton-mouseDown,.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton-mouseDown:hover
+	{
+	background: #2d4eb2;
+	padding: 0px 14px;
+	margin: 0px 3px;
+	border: 1px solid #2245b3;
+	border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton-down {
+	background: #2d4eb2 none;
+	padding: 0px 14px;
+	margin: 0px 3px;
+	border: 1px solid #2245b3;
+	border-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton-downHover {
+	background: #2d4eb2 none !important;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton .downArrow div {
+	background: url(../images/mainframe/toolBtnTriangle.gif) no-repeat
+		center center;
+	margin-left: 6px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarMenuButton .downArrow {
+	background: none;
+}
+
+/*********************************TopBar Tool RToolbarSeparator*****************************************/
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSeparator {
+	background: url("../images/mainframe/toolSeparator.gif") no-repeat
+		center;
+	width: 7px;
+}
+
+/*********************************TopBar Tool RToolbarSplitButton*****************************************/
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton {
+	padding: 0px;
+	height: 26px;
+	margin: 0px 3px;
+	border-style: none;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton .rb-Button {
+	padding: 0px 6px;
+	border: 1px solid #3a5cbc;
+	border-radius: 0px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton .rb-MenuButton {
+	padding: 0px 6px;
+	border: 1px solid #3a5cbc;
+	border-radius: 0px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton .rb-MenuButton .downArrow
+	{
+	background: url(../images/mainframe/toolBtnTriangle.gif) no-repeat
+		center center;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover {
+	border-style: none;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-Button {
+	padding: 0px 6px;
+	background: #446cdb none;
+	border: 1px solid #2e4fae;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-Button-hover
+	{
+	*background: #568af7 none;
+	*border: 1px solid #2e4fae;
+	*border-top-left-radius: 3px;
+	*border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-Button-hover:hover
+	{
+	background: #568af7 none;
+	border: 1px solid #2e4fae;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton
+	{
+	padding: 0px 6px 0px 6px;
+	background: #446cdb none;
+	border: 1px solid #2e4fae;
+	border-top-right-radius: 3px;
+	border-buttom-right-radius: 3px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton-hover
+	{
+	*background: #568af7 none;
+	*border: 1px solid #2e4fae;
+	*border-top-right-radius: 3px;
+	*border-buttom-right-radius: 3px;
+	*margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-hover .rb-MenuButton-hover:hover
+	{
+	background: #568af7 none;
+	border: 1px solid #2e4fae;
+	border-top-right-radius: 3px;
+	border-buttom-right-radius: 3px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button-mouseDown,.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button-mouseDown:hover
+	{
+	background: #2d4eb2 none;
+	border: 1px solid #2245b3;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton
+	{
+	padding: 0px 6px 0px 6px;
+	background: #446cdb none;
+	border: 1px solid #2e4fae;
+	border-top-right-radius: 3px;
+	border-buttom-right-radius: 3px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton-mouseDown,.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-MenuButton-mouseDown:hover
+	{
+	background: #2d4eb2 none;
+	border: 1px solid #2245b3;
+	border-top-right-radius: 3px;
+	border-buttom-right-radius: 3px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-mouseDown .rb-Button
+	{
+	background: #446cdb none;
+	border: 1px solid #2e4fae;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down {
+	border-style: none;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down .rb-Button {
+	padding: 0px 6px 0px 6px;
+	background: #446cdb none;
+	border: 1px solid #2e4fae;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down .rb-Button-hover:hover
+	{
+	background: #568af7 none;
+	border: 1px solid #2e4fae;
+	border-top-left-radius: 3px;
+	border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down .rb-Button-hover
+	{
+	*background: #568af7 none;
+	*border: 1px solid #2e4fae;
+	*border-top-left-radius: 3px;
+	*border-buttom-left-radius: 3px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down .rb-MenuButton-down
+	{
+	padding: 0px 6px 0px 6px;
+	background: #2d4eb2 none;
+	border: 1px solid #2245b3;
+	*border-top-right-radius: 3px;
+	*border-buttom-right-radius: 3px;
+	margin-left: -1px;
+}
+
+.rbm-topBar .rbm-toolBarCell .rb-ToolbarSplitButton-down .rb-MenuButton-downHover
+	{
+	background: #2d4eb2 none !important;
+}
+
+/*************************************sitePanel*************************************/
+.rbm-sitePanel {
+	height: 100%;
+}
+
+.rbm-sitePanel .rbm-stubPanel {
+	width: 16px;
+	height: 100%;
+}
+
+.rbm-sitePanel .rbm-stubPanel .buttonCell {
+	width: 16px;
+	height: 44px;
+}
+
+.rbm-sitePanel .rbm-stubPanel .button {
+	background: url("../images/mainframe/site-button-bg2.gif") no-repeat;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	cursor: hand;
+}
+
+.rbm-sitePanel .rbm-stubPanel .button-hovering {
+	background: url("../images/mainframe/site-button-bg2-hovering.gif")
+		no-repeat;
+}
+
+.rbm-sitePanel .rbm-stubPanel .button .icon {
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-sitePanel .rbm-stubPanel .button .icon-expand {
+	background: url("../images/mainframe/site-expand.gif") no-repeat 50% 50%;
+}
+
+.rbm-sitePanel .rbm-stubPanel .slipCell {
+	border-top: 1px solid #12214C;
+	border-bottom: 1px solid #436BC2;
+	border-right: 1px solid #000600;
+	background: #3C5CA5 url("../images/mainframe/site-slip-bg.gif") repeat-y
+		0px 0px;
+}
+
+.rbm-sitePanel .rbm-menuPanel {
+	width: 200px;
+	height: 100%;
+}
+
+/*************************************centerPanel*************************************/
+.rbm-CenterFrame {
+	
+}
+
+/*************************************AppsDialog*************************************/
+.rbm-AppsDisplayPanel {
+	background: white none;
+}
+
+.rbm-AppsDialog {
+	background: white none;
+	border: 1px solid navy;
+	border-radius: 10px;
+	z-index: 20000;
+}
+
+.rbm-AppsDialog .rbm-root {
+	margin: 10px;
+	width: 650px;
+}
+
+.rbm-AppsDisplayPanel .rbm-root {
+	margin: 10px;
+	width: 650px;
+	margin: 10px 10px 10px 0px;
+	border-left: 1px solid #dee0e2;
+	border-right: 1px solid #dee0e2;
+}
+
+.rbm-AppsDialog .rbm-root .rbm-title {
+	widht: 100%;
+	height: 22px;
+	margin: 0px 0px 5px 0px;
+}
+
+.rbm-AppsDialog .rbm-root .rbm-close {
+	float: right;
+}
+
+.rbm-AppsDialog .rbm-root .rbm-content,.rbm-AppsDisplayPanel .rbm-root .rbm-content
+	{
+	width: 100%;
+	height: 450px;
+	overflow-y: auto;
+}
+
+.rbm-AppsDialog .rbm-root .rbm-content .rbm-recent,.rbm-AppsDisplayPanel .rbm-root .rbm-content .rbm-recent
+	{
+	width: 100%;
+}
+
+.rbm-AppsDialog .rbm-root .rbm-content .rbm-all,.rbm-AppsDisplayPanel .rbm-root .rbm-content .rbm-all
+	{
+	width: 100%;
+}
+
+/*************************************MainMenu PopupMenu*************************************/
+.rbm-MainMenu {
+	z-index: 21000;
+}
+
+.rbm-MainMenu .rbi-PopupMenu-menu {
+	border: 0px solid #2e50b3;
+	background: #2e50b3;
+	padding: 0px;
+	position: relative;
+}
+
+.rbm-MainMenu .rbi-PopupMenu-iconBar {
+	background-color: transparent;
+	width: 2px;
+	height: 100%; /* for Chrome */
+	height: expression(offsetParent.offsetHeight -                     2);
+	/* for IE */
+	position: absolute;
+	left: 0px; /* for Chrome */
+	top: 0px; /* for Chrome */
+	*left: -2px; /* IE hack */
+	*top: 1px; /* IE hack */
+}
+
+.rbm-MainMenu .rb-MenuItemBase {
+	padding: 1px 1px 1px 4px;
+	height: 30px;
+	*height: 32px; /* IE hack */
+	border-radius: 2px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.rbm-MainMenu .rb-MenuItemBase .caption {
+	font-family: Microsoft YaHei, Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 15px;
+	color: white;
+	white-space: nowrap;
+	padding: 0px 15px 0px 6px;
+}
+
+.rbm-MainMenu .rb-MenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainMenu .rb-SubMenuItem .arrow .gwt-HTML {
+	background: url(../images/mainframe/miArrow.gif) no-repeat center center;
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-MainMenu .rb-SubMenuItem-hover,.rbm-MainMenu .rb-SubMenuItem-subMenuOpen
+	{
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem .arrow .gwt-HTML {
+	background: url(../images/mainframe/miArrow.gif) no-repeat 5px 12px;
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-hover .arrow {
+	background: #4d7eec;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-hover .arrow .gwt-HTML {
+	background-position: 4px 12px;
+	border-left: 0px solid #2e50b3;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-arrowHover,.rbm-MainMenu .rb-SplitMenuItem-subMenuOpen
+	{
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-arrowHover .arrow,.rbm-MainMenu .rb-SplitMenuItem-subMenuOpen .arrow
+	{
+	background: #4d7eec;
+}
+
+.rbm-MainMenu .rb-SplitMenuItem-arrowHover .arrow .gwt-HTML,.rbm-MainMenu .rb-SplitMenuItem-subMenuOpen .arrow .gwt-HTML
+	{
+	background-position: 4px 12px;
+	border-left: 0px solid #2e50b3;
+}
+
+/*************************************MainTool PopupMenu*************************************/
+.rbm-MainTool .menu {
+	border: 0px solid #2e50b3;
+	background: #2e50b3;
+	padding: 0px;
+	position: relative;
+}
+
+.rbm-MainTool .iconBar {
+	background-color: transparent;
+	width: 27px;
+	height: 100%; /* for Chrome */
+	height: expression(offsetParent.offsetHeight -2);
+	/* for IE */
+	position: absolute;
+	left: 0px; /* for Chrome */
+	top: 0px; /* for Chrome */
+	*left: -2px; /* IE hack */
+	*top: 1px; /* IE hack */
+}
+
+.rbm-MainTool .rb-MenuItemBase {
+	padding: 1px 1px 1px 4px;
+	height: 24px;
+	*height: 26px; /* IE hack */
+	border-radius: 2px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.rbm-MainTool .rb-MenuItemBase .caption {
+	font-family: Microsoft YaHei, Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 13px;
+	color: white;
+	white-space: nowrap;
+	padding: 0px 15px 0px 6px;
+}
+
+.rbm-MainTool .rb-MenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainTool .rb-SubMenuItem .arrow .gwt-HTML {
+	background: url(../images/mainframe/miArrow.gif) no-repeat center center;
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-MainTool .rb-SubMenuItem-hover,.rbm-MainTool .rb-SubMenuItem-subMenuOpen
+	{
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainTool .rb-SplitMenuItem .arrow .gwt-HTML {
+	background: url(../images/mainframe/miArrow.gif) no-repeat 5px 9px;
+	width: 100%;
+	height: 100%;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-hover .arrow {
+	background: #3f67d6;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-hover .arrow .gwt-HTML {
+	background-position: 4px 9px;
+	border-left: 1px solid #2e50b3;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-arrowHover,.rbm-MainTool .rb-SplitMenuItem-subMenuOpen
+	{
+	border: 1px solid #3f67d6;
+	background: #3f67d6;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-arrowHover .arrow,.rbm-MainTool .rb-SplitMenuItem-subMenuOpen .arrow
+	{
+	background: #4d7eec;
+}
+
+.rbm-MainTool .rb-SplitMenuItem-arrowHover .arrow .gwt-HTML,.rbm-MainTool .rb-SplitMenuItem-subMenuOpen .arrow .gwt-HTML
+	{
+	background-position: 4px 9px;
+	border-left: 1px solid #2e50b3;
+}
+
+/*************************************NaviPanel*************************************/
+.rbm-NaviPanel {
+	background: white none;
+	padding: 20px 0px 20px 222px;
+	margin-bottom: 60px;
+}
+
+.rbm-NaviPanel .rbm-left {
+	background: white none;
+	padding-bottom: 20px;
+	width: 480px;
+	display: block;
+	float: left;
+}
+
+.rbm-NaviPanel .rbm-right {
+	background: white none;
+	padding-bottom: 20px;
+	width: 480px;
+	display: block;
+	float: left;
+}
+
+.rbm-secondNavi {
+	font-family: 微软雅黑;
+	font-size: 15px;
+	font-weight: bold;
+	color: #434343;
+}
+
+.rbm-fourthItemPanel {
+	background: white none;
+	width: 476px;
+	display: block;
+	float: left;
+}
+
+.rbm-fourthItemPanel .rbm-naviSeparator {
+	font-size: 12px;
+	padding: 4px 4px;
+	color: #DDDDDD;
+	display: block;
+	float: left;
+	color: #DDDDDD;
+	padding-bottom: 4px;
+}
+
+.rbm-fourthItemPanel .rb-Hyperlink {
+	display: block;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	float: left;
+	font-family: 微软雅黑;
+	font-size: 13px;
+	color: #848484;
+	line-height: 19px;
+	cursor: pointer;
+	cursor: hand;
+	padding-bottom: 4px;
+}
+
+.rbm-fourthItemPanel .rb-Hyperlink-hover {
+	color: #0943b9;
+	text-decoration: underline;
+}
+
+/*************************************New MainMenu PopupMenu*************************************/
+.rbm-NewMainMenu {
+	z-index: 21000;
+}
+
+.rbm-NewMainMenu .rbi-PopupMenu-menu {
+	border: 0px solid #2e50b3;
+	background: white none;
+	padding: 0px;
+	position: relative;
+}
+
+.rbm-NewMainMenu .rbi-PopupMenu-iconBar {
+	background-color: transparent;
+	width: 2px;
+	height: 100%; /* for Chrome */
+	height: expression(offsetParent.offsetHeight - 2);
+	/* for IE */
+	position: absolute;
+	left: 0px; /* for Chrome */
+	top: 0px; /* for Chrome */
+	*left: -2px; /* IE hack */
+	*top: 1px; /* IE hack */
+}
+
+.rbm-NewMainMenu .rb-MenuItemBase {
+	padding: 1px 1px 1px 4px;
+	height: 30px;
+	*height: 32px; /* IE hack */
+	border-radius: 2px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.rbm-NewMainMenu .rb-MenuItemBase .caption {
+	font-family: Microsoft YaHei, Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 15px;
+	white-space: nowrap;
+	padding: 0px 15px 0px 6px;
+}
+
+.rbm-NewMainMenu .rb-MenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-NewMainMenu .rb-SubMenuItem-hover,.rbm-NewMainMenu .rb-SubMenuItem-subMenuOpen
+	{
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-NewMainMenu .rb-SplitMenuItem-hover {
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+.rbm-NewMainMenu .rb-SplitMenuItem-arrowHover,.rbm-NewMainMenu .rb-SplitMenuItem-subMenuOpen
+	{
+	border: 1px solid #4d7eec;
+	background: #4d7eec;
+	padding: 0px 0px 0px 3px;
+}
+
+/**************************SearchBox****************************/
+.rbm-SearchBox {
+	border-left: 1px solid #dee0e2;
+	border-right: 1px solid #dee0e2;
+}
+
+/**************************SuggestBox****************************/
+.rbm-SuggestBox {
+	border: 1px solid #b5b8c8;
+	width: 320px;
+	height: 32px;
+}
+
+.rbm-SuggestBox-focused {
+	border: 1px solid #7eadd9;
+	width: 320px;
+	height: 32px;
+}
+
+.rbm-SuggestBox .empty,.rbm-SuggestBox-focused .empty {
+	color: #bbbbbb;
+	padding-left: 6px
+}
+
+.rbm-SuggestBox .input,.rbm-SuggestBox-focused .input {
+	height: 30px;
+	width: 300px;
+	padding-left: 6px;
+	border: 0;
+	font-size: 13px;
+	outline: none;
+}
+
+.rbm-SuggestBox .delete-icon,.rbm-SuggestBox-focused .delete-icon {
+	width: 10px;
+	hight: 10px;
+	cursor: pointer;
+	padding: 0px 2px;
+}
+
+/***************************SearchResultItem*******************************/
+.rbm-SearchResultItem,.rbm-SearchHistoryItem {
+	width: 320px;
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+	cursor: hand;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.rbm-SearchResultItem .caption,.rbm-SearchHistoryItem .caption {
+	width: 276px;
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 14px;
+	display: block;
+	float: left;
+	margin-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rbm-SearchResultItem .collection {
+	display: block;
+	float: right;
+}
+
+.rbm-SearchHisHeader {
+	width: 320px;
+	height: 24px;
+	display: block;
+}
+
+.rbm-SearchHisHeader .searchIcon {
+	margin-left: 2px;
+	display: block;
+	float: left;
+}
+
+.rbm-SearchHisHeader .caption {
+	margin-left: 4px;
+	display: block;
+	float: left;
+	display: block;
+}
+
+.rbm-hovering {
+	color: white;
+	background-color: #deebf7;
+}
+
+.rbm-SearchHistoryPanel .clearLink {
+	margin-left: 4px;
+}
+
+.rbm-MyHabitPanel {
+	width: 520px;
+	padding: 20px 20px;
+	border-left: 1px solid #dee0e2;
+	border-right: 1px solid #dee0e2;
+}
+
+.rbm-MyHabitPanel .rbm-MyHabitItem {
+	display: block;
+	width: 170px;
+	height: 30px;
+	line-height: 30px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.rbm-MyHabitPanel .rbm-MyHabitItem .caption {
+	width: 126px;
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 14px;
+	display: block;
+	float: left;
+	margin-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rbm-MyHabitPanel .rbm-MyHabitItem .collection {
+	display: block;
+	float: right;
+}
+
+.rbm-MyHabitPanel .title {
+	color: #434343rgb;
+	display: inline;
+	font-family: '微软雅黑 Bold', 微软雅黑;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: bold;
+	margin-left: 4px;
+	height: auto;
+	line-height: normal;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.rbm-MyHabitPanel .recentLine {
+	padding-top: 10px;
+	padding-left: 12px;
+	display: block;
+	float: left;
+}
+
+.rbm-MyHabitPanel .habitLine {
+	padding-left: 12px;
+	padding-right: 12px;
+	display: block;
+	float: left;
+}
+
+.rbm-MyHabitPanel .toolbar {
+	width: 520px;
+	display: block;
+}
+
+.rbm-MyHabitPanel .habitBar {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+
+.rbm-MyHabitPanel .habitBar .habitIcon {
+	padding-top: 6px;
+	display: block;
+	float: left;
+}
+
+.rbm-EditButton {
+	display: block;
+	width: 66px;
+	hight: 30px;
+	line-height: 30px;
+	cursor: hand;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.rbm-EditButton .editIcon {
+	padding-top: 6px;
+	padding-left: 4px;
+	display: block;
+	float: left;
+}
+
+.rbm-EditButton .link {
+	display: block;
+	font-family: '微软雅黑 Regular', 微软雅黑;
+	font-size: 13px;
+	color: #0943b9;
+	font-style: normal;
+	font-weight: normal;
+	opacity: 1;
+	text-align: left;
+	white-space: nowrap;
+	width: auto;
+	margin-left: 24px;
+}
+
+.rbm-EditButton-hover {
+	color: white;
+	background-color: #5e92f8;
+}
+
+.link-hover {
+	color: white;
+}
+
+.rbm-CurrentUserPanel {
+	width: 200px;
+	padding: 10px 10px;
+	border-left: 1px solid #dee0e2;
+	border-right: 1px solid #dee0e2;
+	display: block;
+}
+
+.rbm-CurrentUserPanel .rbm-ToolbarItem,.rbm-CurrentUserPanel .rbm-ModifyPasswordItem
+	{
+	display: block;
+	width: 200;
+	height: 36px;
+	line-height: 36px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.rbm-CurrentUserPanel .rbm-ToolbarItem .icon,.rbm-CurrentUserPanel .rbm-ModifyPasswordItem .icon
+	{
+	padding-top: 10px;
+	display: block;
+	float: left;
+}
+
+.rbm-CurrentUserPanel .rbm-ToolbarItem .caption,.rbm-CurrentUserPanel .rbm-ModifyPasswordItem .caption
+	{
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 14px;
+	color: #434343;
+	margin-left: 6px;
+	display: block;
+	float: left;
+	display: block;
+	width: 170px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rbm-LogoutItem {
+	display: block;
+	float: right;
+	padding-right: 4px;
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.rbm-LogoutItem .icon {
+	padding-top: 6px;
+	padding-left: 10px;
+	padding-right: 8px;
+	display: block;
+	float: left;
+}
+
+.rbm-LogoutItem .link {
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-size: 13px;
+	color: red;
+	width: 50px;
+	display: block;
+	float: left;
+}
+
+.rbm-LogoutItem-hover {
+	color: white;
+	background-color: #df5c41;
+}
+
+.rbm-LogoutItem-link-hover {
+	font-family: 'Arial Normal', 'Arial';
+	font-weight: 400;
+	font-size: 13px;
+	color: white;
+	width: 50px;
+	display: block;
+	float: left;
+}
+
+.rbm-CurrentUserHeader {
+	display: block;
+	padding-bottom: 50px;
+}
+
+.rbm-CurrentUserHeader .icon {
+	padding-top: 4px;
+	padding-right: 10px;
+	display: block;
+	float: left;
+}
+
+.rbm-CurrentUserHeader .contentPanel {
+	display: block;
+	float: left;
+}
+
+.rbm-CurrentUserHeader .caption {
+	color: #434343;
+	display: inline;
+	font-family: '微软雅黑 Regular', 微软雅黑;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	height: auto;
+	line-height: normal;
+	text-align: left;
+	visibility: visible;
+	width: auto;
+}
+
+.rbm-CurrentUserHeader .namespace {
+	color: #999999;
+	display: inline;
+	font-family: '微软雅黑 Regular', 微软雅黑;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	height: auto;
+	line-height: normal;
+	text-align: left;
+	visibility: visible;
+	white-space: nowrap;
+	width: auto;
+}
+
+.rbm-MyHabitEditItem {
+	display: block;
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.rbm-MyHabitEditItem .caption {
+	width: 210px;
+	font-family: '微软雅黑 Regular', '微软雅黑';
+	font-size: 14px;
+	display: block;
+	float: left;
+	margin-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rbm-MyHabitEditItem .toolbar {
+	display: block;
+	float: right;
+}

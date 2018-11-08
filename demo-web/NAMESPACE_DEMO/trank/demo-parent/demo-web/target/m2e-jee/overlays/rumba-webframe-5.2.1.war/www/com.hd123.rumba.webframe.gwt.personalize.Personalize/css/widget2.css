@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+BODY {
+  background-color: #EFF5FB;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 9pt;
+  color: #333333;
+  margin: 0px;
+  overflow: auto;
+}
+
+table,tr,td,p,input,textarea,select,div {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 9pt;
+  color: #333333;
+}
+
+textarea {
+  overflow: auto;
+}
+
+hr {
+  color: white;
+  height: 1px;
+}
+
+A:link {
+  color: #183DA5;
+  text-decoration: none;
+}
+
+A:visited {
+  color: #183DA5;
+  text-decoration: none;
+}
+
+A:active {
+  color: #F20000;
+  text-decoration: underline;
+}
+
+A:hover {
+  color: #F20000;
+  text-decoration: underline;
+}

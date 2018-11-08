@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+/******************************************************
+  ShortcutBox
+******************************************************/
+.casw-ShortcutBox {
+	margin: 5px;
+	padding: 6px;
+	float: left;
+	table-layout: fixed;
+	border: 1px solid transparent;
+}
+
+.casw-ShortcutBox-cursor {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.casw-ShortcutBox-hovering {
+	border: 1px solid darkgray;
+	border-radius: 3px;
+	background: #fffbf0 url(../images/button/btn-hov.gif) repeat-x center;
+}
+
+.casw-ShortcutBox .logo {
+	width: 48px;
+	height: 48px;
+}
+
+.casw-ShortcutBox .logoCell {
+	width: 60px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.casw-ShortcutBox .infoCell {
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+	line-height: 18px;
+}
+
+.casw-ShortcutBox .infoCell .caption {
+	font-weight: bold;
+}
+
+/******************************************************
+  ShortcutGadget
+******************************************************/
+.casw-ShortcutGadget {
+	
+}
+
+.casw-ShortcutGadget .m-title {
+	padding: 0px 0px 2px 10px;
+	font-family: "Microsoft YaHei", Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.casw-ShortcutGadget .m-caption {
+	font-family: "Microsoft YaHei", Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.casw-ShortcutGadget .m-caption-showDivLine {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+}
+
+.casw-ShortcutGadget .m-list {
+	
+}
+
+.casw-ShortcutGadget .m-loading {
+	padding: 20px 20px 20px 100px;
+	background: transparent url(../images/dialog/loading.gif) no-repeat
+		100px 20px;
+}
+
+.casw-ShortcutGadget .m-empty {
+	color: darkgray;
+	padding: 20px 20px 20px 100px;
+	font-family: "Microsoft YaHei", Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 10pt;
+}
+
+.casw-ShortcutGadget .m-error {
+	padding: 20px 0px 20px 0px;
+	background: transparent
+		url(../images/CASWidget/shortcut/error-small.gif) no-repeat 100px 20px;
+}
+
+.casw-ShortcutGadget .m-error .message {
+	padding: 0px 0px 0px 120px;
+	color: darkgray;
+	font-family: "Microsoft YaHei", Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 10pt;
+}
+
+/******************************************************
+  casw-KeyboardKeyBox
+******************************************************/
+.casw-KeyboardKeyBox {
+	cursor: pointer;
+	cursor: hand;
+	float: left;
+}
+
+.casw-KeyboardKeyBox .keyImage {
+	
+}
+
+/******************************************************
+  casw-KeyboardMainboardBox
+******************************************************/
+.casw-KeyboardMainboardBox {
+	width: 480px;
+	background: #f2f6fd;
+}
+
+/******************************************************
+  casw-KeyboardFloatingPanel
+******************************************************/
+.casw-KeyboardFloatingPanel {
+	z-index: 20000;
+}
+
+.casw-KeyboardFloatingPanel td.topBar {
+	height: 26px;
+}
+
+.casw-KeyboardFloatingPanel table.topBar {
+	width: 100%;
+	height: 26px;
+}
+
+.casw-KeyboardFloatingPanel table.topBar .topBarLeft {
+	width: 5px;
+	background: url(../images/panel/floating/floatTopLeft.png) no-repeat;
+	-background: url(../images/panel/floating/floatTopLeft-ie6.gif)
+		no-repeat; /*IE6下显示直角以避免圆角半透明区域问题*/
+}
+
+.casw-KeyboardFloatingPanel table.topBar .topBarRight {
+	width: 5px;
+	background: url(../images/panel/floating/floatTopRight.png) no-repeat;
+	-background: url(../images/panel/floating/floatTopRight-ie6.gif)
+		no-repeat; /*IE6下显示直角以避免圆角半透明区域问题*/
+}
+
+.casw-KeyboardFloatingPanel table.topBar td.caption {
+	background: url(../images/panel/floating/floatTop.png) repeat-x;
+	cursor: default;
+}
+
+.casw-KeyboardFloatingPanel table.topBar div.caption {
+	height: 26px;
+	line-height: 26px;
+	padding-left: 1px;
+}
+
+.casw-KeyboardFloatingPanel table.topBar .button {
+	width: 21px;
+	background: url(../images/panel/floating/floatTop.png) repeat-x;
+}
+
+.casw-KeyboardFloatingPanel table.topBar .button .rb-ToolbarButton {
+	width: 21px;
+	height: 19px;
+	padding: 0;
+}
+
+.casw-KeyboardFloatingPanel table.topBar .button .rb-ToolbarButton-hover
+	{
+	border-color: #939393;
+	border-top-color: #b0b0b0;
+}
+
+.casw-KeyboardFloatingPanel table.topBar .button .rb-ToolbarButton-mouseDown
+	{
+	border-color: #939393;
+	border-top-color: #b0b0b0;
+}
+
+.casw-KeyboardFloatingPanel td.contentPanel {
+	border: 2px solid #596c98;
+	border-top: 0;
+	background: #f2f6fd;
+}
+
+.casw-KeyboardFloatingPanel div.contentPanel {
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+}
+
+.casw-KeyboardFloatingPanel .contentPanel .content {
+	-webkit-box-sizing: border-box;
+	width: 100%;
+}

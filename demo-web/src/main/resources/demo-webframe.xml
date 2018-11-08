@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 版权所有(C)，2014，上海海鼎信息工程股份有限公司，保留所有权利。 -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:util="http://www.springframework.org/schema/util" xmlns:security="http://www.springframework.org/schema/security"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security.xsd">
+
+  <import resource="classpath:META-INF/rumba-webframe/*.xml" />
+  
+  <bean class="com.hd123.license.LicenseFactory" factory-method="getInstance" lazy-init="false"
+    p:servers="${demo-about.licenseServers:localhost:8088}" />
+  <bean class="com.hd123.rumba.webframe.license.LicenseVerifierManager" factory-method="getInstance">
+    <property name="verifiers">
+      <list>
+        <bean class="com.hd123.demo.license.DemoWebLicenseVerifier" />
+      </list>
+    </property>
+  </bean>
+  
+  <!-- GWT模块分发器 -->
+  <bean class="com.hd123.rumba.webframe.request.GWTModuleDispatcher" factory-method="getInstance">
+    <property name="contextMap">
+      <util:map>
+        <entry key="www" value="www" />
+        <entry key="www2" value="www2" />
+      </util:map>
+    </property>
+    <!-- GWT模块分发匹配包名的前缀，允许指定多个，位于列表前面的将优先匹配。 -->
+    <property name="packages">
+      <util:list>
+        <value>com.hd123.m3.investment.gwt</value>
+        <value>com.hd123.rumba.webframe.gwt</value>
+      </util:list>
+    </property>
+  </bean>
+
+  <!-- 与当前应用系统相关资源的配置。 -->
+  <bean class="com.hd123.rumba.webframe.application.ApplicationResources" factory-method="getInstance"
+    lazy-init="false">
+    <property name="logoImageForCover" value="../static/demo/images/cre-logo-cover.gif" />
+    <property name="logoImageForHeader" value="../static/demo/images/cre-logo-header.gif" />
+    <property name="logoImageForAbout" value="../static/demo/images/cre-logo-about.gif" />
+    <property name="logoImageForHome" value="../static/demo/images/cre-logo-home.gif" />
+  </bean>
+
+
+  <!-- GWT模块com.hd123.rumba.webframe.gwt.base.Base相关配置。 -->
+  <!-- 用于模块上下文的编码/解码器 -->
+  <bean id="rumba.moduleContextCodec" class="com.hd123.rumba.commons.codec.CodecUtilsBean" />
+
+  <!-- GWT模块com.hd123.rumba.webframe.gwt.entry.Entry相关的配置。 -->
+  <bean class="com.hd123.rumba.webframe.gwt.entry.server.EntryConfig">
+    <property name="footerPromptHtml">
+      <value><![CDATA[
+      <b>提示：</b>为获得最佳性能，推荐使用 <a href='http://www.google.com/chrome/index.html'>Google Chrome</a>  浏览器。<br>
+      <b>提示：</b>本系统支持IE 8.0以上浏览器；建议使用1024*768以上分辨率浏览。
+      ]]></value>
+    </property>
+  </bean>
+
+  <bean id="cre-web.naviProcessor" class="com.hd123.rumba.webframe.gwt.navi.server.UserNaviProcessor" />
+
+  <!-- GWT模块com.hd123.rumba.webframe.gwt.mainframe.MainFrame相关的配置。 -->
+  <bean class="com.hd123.rumba.webframe.gwt.mainframe.server.MainFrameConfig">
+    <property name="naviXml" value="${cre-web.mainNavi:classpath:main-navi.xml}" />
+    <property name="naviProcessors">
+      <util:list>
+        <ref bean="cre-web.naviProcessor" />
+      </util:list>
+    </property>
+  </bean>
+</beans>

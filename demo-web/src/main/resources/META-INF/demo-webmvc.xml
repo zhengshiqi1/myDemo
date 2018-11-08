@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 版权所有(C)，上海海鼎信息工程股份有限公司，2014，所有权利保留。 -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+  <context:annotation-config />
+  <context:component-scan base-package="com.hd123.demo.controller.*" />
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="true" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:demo-web.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+      <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+          <list>
+            <!-- 这里顺序不能反，一定先写text/html,不然ie下出现下载提示 -->
+            <value>text/html;charset=UTF-8</value>
+            <value>application/json;charset=UTF-8</value>
+          </list>
+        </property>
+      </bean>
+      <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="objectMapper">
+          <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+            <property name="objectMapper">
+              <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                <property name="serializationInclusion">
+                  <value type="com.fasterxml.jackson.annotation.JsonInclude$Include">NON_NULL</value>
+                </property>
+                <property name="dateFormat">
+                  <bean class="com.hd123.demo.format.DateTimeFormat">
+                    <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"></constructor-arg>
+                  </bean>
+                </property>
+              </bean>
+            </property>
+            <property name="featuresToDisable">
+              <array>
+                <util:constant
+                  static-field="com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES" />
+              </array>
+            </property>
+          </bean>
+        </property>
+        <property name="prettyPrint" value="true" />
+      </bean>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
+</beans>
+

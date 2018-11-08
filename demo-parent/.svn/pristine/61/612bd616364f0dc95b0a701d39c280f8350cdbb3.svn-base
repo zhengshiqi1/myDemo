@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hd123.demo</groupId>
+    <artifactId>demo-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>demo-extjs</artifactId>
+  <packaging>war</packaging>
+  <description>extjs工程包</description>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>Unpack ExtJS</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.hd123.lab</groupId>
+                  <artifactId>extjs</artifactId>
+                  <version>6.0.0</version>
+                  <type>zip</type>
+                  <outputDirectory>${basedir}/target/extjs/ext</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sencha-compile</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <copydir dest="${basedir}/target/extjs/" src="${basedir}/src/extjs/" />
+                <property name="build.environment" value="production" />
+                <!-- 由于目前使用1.6的jdk。故而只能采用sencha的命令行方式 -->
+                <!-- <ant dir="${basedir}/target/extjs/sales" target="build" /> -->
+                <exec executable="cmd" dir="${basedir}/target/extjs/demo" failonerror="false">
+                  <arg line="/c sencha app build" />
+                </exec>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <archiveClasses>true</archiveClasses>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+          <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+          <attachClasses>true</attachClasses>
+          <version>2.5</version>
+          <webResources>
+            <resource>
+              <directory>${basedir}/target/extjs/build/production</directory>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

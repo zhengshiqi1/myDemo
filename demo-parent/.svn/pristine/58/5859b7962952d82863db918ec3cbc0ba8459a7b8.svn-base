@@ -1,0 +1,283 @@
+/**
+ * 版权所有(C)，上海海鼎信息工程股份有限公司，2013，所有权利保留。
+ * <p/>
+ * 项目名：	rumba-webframe
+ * 文件名：	MainFrameServiceServlet.java
+ * 模块说明：
+ * 修改历史：
+ * 2013-4-3 - lxm - 创建。
+ */
+package com.hd123.rumba.webframe.gwt.mainframe.server;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.hd123.license.BadLicenseException;
+import com.hd123.license.License;
+import com.hd123.license.LicenseInvalidException;
+import com.hd123.rumba.commons.codec.CodecUtils;
+import com.hd123.rumba.commons.codec.CodecUtilsBean;
+import com.hd123.rumba.commons.gwt.mini.client.Assert;
+import com.hd123.rumba.commons.jar.ApplicationAbout;
+import com.hd123.rumba.notice.bubble.service.BubbleChannelService;
+import com.hd123.rumba.webframe.application.ApplicationResources;
+import com.hd123.rumba.webframe.gwt.base.server.ModuleServiceServlet;
+import com.hd123.rumba.webframe.gwt.mainframe.client.BCollectionEntry;
+import com.hd123.rumba.webframe.gwt.mainframe.client.MainFrameService;
+import com.hd123.rumba.webframe.gwt.navi.client.entry.BEntry;
+import com.hd123.rumba.webframe.gwt.navi.client.navi.BNavi;
+import com.hd123.rumba.webframe.gwt.navi.server.entry.BEntryConverter;
+import com.hd123.rumba.webframe.gwt.navi.server.entry.Entry;
+import com.hd123.rumba.webframe.gwt.navi.server.navi.BNaviConverter;
+import com.hd123.rumba.webframe.gwt.navi.server.navi.Navi;
+import com.hd123.rumba.webframe.service.entry.EntryServiceFactory;
+import com.hd123.rumba.webframe.service.entry.FavoriteService;
+import com.hd123.rumba.webframe.service.entry.HabitService;
+
+/**
+ * @author lxm
+ * 
+ */
+public class MainFrameServiceServlet extends ModuleServiceServlet implements MainFrameService {
+
+  private static final long serialVersionUID = 477329951987732312L;
+
+  private static final Logger logger = LoggerFactory.getLogger(MainFrameServiceServlet.class);
+
+  @Override
+  protected void buildModuleContext(Map<String, String> moduleContext, CodecUtilsBean codecUtils) {
+    super.buildModuleContext(moduleContext, codecUtils);
+
+    ApplicationResources appRes = ApplicationResources.getInstance();
+    moduleContext.put(KEY_LOGO_HEADER, appRes.getLogoImageForHeader());
+
+    ApplicationAbout about = appRes.getAbout();
+    moduleContext
+        .put(KEY_LICENSE_AUTHORIZED_USER, getLicenseAuthorizedUser(about.getCommonTitle()));
+    moduleContext.put(KEY_LICENSE_MESSAGE, getLicenseMessage(about));
+
+    MainFrameConfig config = MainFrameConfig.getDefault(getAppCtx());
+    moduleContext.put(KEY_HOME_URL, config.getHomeUrl());
+    moduleContext.put(KEY_LOGO_REDIRECT_URL, config.getLogoRedirectUrl());
+
+    if (config.getLogoutStrategy() != null) {
+      moduleContext.put(KEY_LOGOUT_STRATEGY, config.getLogoutStrategy().toString());
+    }
+
+    moduleContext
+        .put(KEY_AUTO_REFRESH_MAIN_MENU, CodecUtils.encode(config.isAutoRefreshMainMenu()));
+    moduleContext
+        .put(KEY_AUTO_REFRESH_MAIN_TOOL, CodecUtils.encode(config.isAutoRefreshMainTool()));
+    moduleContext.put(KEY_MAIN_MENU_REFRESH_PERIOD_MILLIS,
+        CodecUtils.encode(config.getMainMenuRefreshPeriodMillis()));
+    moduleContext.put(KEY_MAIN_TOOL_REFRESH_PERIOD_MILLIS,
+        CodecUtils.encode(config.getMainToolRefreshPeriodMillis()));
+    moduleContext.put(KEY_LOGO_FAVICON, appRes.getLogoFavicon());
+    moduleContext.put(KEY_APPS_ICON_URL_CONTEXT, config.getAppsIconUrlContext());
+    moduleContext.put(KEY_CAS_SERVER_URL, config.getCasServerUrl());
+
+    moduleContext.put(KEY_NOTICE_ENABLED, CodecUtils.encode(isNoticeEnabled()));
+    moduleContext.put(KEY_SHOW_APPS, CodecUtils.encode(config.isShowApps()));
+    moduleContext.put(KEY_SHOW_BACK_HOME, CodecUtils.encode(config.isShowBackHome()));
+    moduleContext.put(KEY_HABITS_ENABLED, CodecUtils.encode(isHabitsEnabled()));
+    moduleContext.put(KEY_HALF_NAVI, CodecUtils.encode(config.isHalfNavi()));
+    moduleContext.put(KEY_SHOW_BUBBLE, CodecUtils.encode(config.isShowBubble()));
+  }
+
+  private boolean isHabitsEnabled() {
+    return false;
+  }
+
+  @Override
+  public BNavi getMenuNavis() throws Exception {
+    MainFrameNaviManager manager = MainFrameNaviManager.getInstance(getAppCtx());
+    Navi navi = manager.getNavi(MainFrameNaviManager.NAVI_MENU);
+    return new BNaviConverter().convert(navi);
+  }
+
+  @Override
+  public BNavi getToolbarNavis() throws Exception {
+    MainFrameNaviManager manager = MainFrameNaviManager.getInstance(getAppCtx());
+    Navi navi = manager.getNavi(MainFrameNaviManager.NAVI_TOOLBAR);
+    return new BNaviConverter().convert(navi);
+  }
+
+  @Override
+  public Map<String, BEntry> getEntrySet() throws Exception {
+    MainFrameNaviManager manager = MainFrameNaviManager.getInstance(getAppCtx());
+    Map<String, Entry> map = manager.getEntrySet();
+    Map<String, BEntry> result = new HashMap<String, BEntry>();
+
+    BEntryConverter converter = new BEntryConverter();
+    for (String key : map.keySet()) {
+      BEntry bentry = converter.convert(map.get(key));
+      result.put(key, bentry);
+    }
+
+    return result;
+  }
+
+  @Override
+  public void logout() throws Exception {
+    getRequest().getSession().invalidate();
+  }
+
+  private String getLicenseAuthorizedUser(String applicationTitle) {
+    return null;
+  }
+
+  private String getLicenseMessage(ApplicationAbout about) {
+    return null;
+  }
+
+  /**
+   * Rumba Notice服务是否可用。
+   */
+  private boolean isNoticeEnabled() {
+    return getAppCtx().containsBean(BubbleChannelService.DEFAULT_CONTEXT_ID);
+  }
+
+  @Override
+  public boolean isUseNewNavi() throws Exception {
+    MainFrameConfig config = MainFrameConfig.getDefault(getAppCtx());
+    return config.isUseNewNavi();
+  }
+
+  @Override
+  public List<String> getSearchCache(String userId) throws Exception {
+    return SearchRecordCache.getInstance().getSearchCache(userId);
+  }
+
+  @Override
+  public List<String> updateSearchCache(String userId, String keyword) throws Exception {
+    try {
+      return SearchRecordCache.getInstance().updateSearchCache(userId, keyword);
+    } catch (Exception e) {
+      throw new Exception(e);
+    }
+  }
+
+  @Override
+  public void clearSearchCache(String userId) throws Exception {
+    SearchRecordCache.getInstance().clearSearchCache(userId);
+  }
+
+  @Override
+  public List<String> storeFavorite(String userId, String entry) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+    Assert.assertArgumentNotNull(entry, "entry");
+    if (getFavoriteService() == null) {
+      return new ArrayList<String>();
+    }
+    return getFavoriteService().store(userId, entry);
+  }
+
+  @Override
+  public List<String> removeFavorite(String userId, String entry) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+    Assert.assertArgumentNotNull(entry, "entry");
+    try {
+      return getFavoriteService().remove(userId, entry);
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw e;
+    }
+  }
+
+  @Override
+  public List<String> getFavorites(String userId) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+
+    if (getFavoriteService() == null) {
+      return new ArrayList<String>();
+    }
+    return getFavoriteService().get(userId);
+  }
+
+  @Override
+  public List<BEntry> getFavoriteEntries(String userId) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+
+    List<BEntry> entries = new ArrayList<BEntry>();
+    if ((getFavoriteService() == null)) {
+      return entries;
+    }
+
+    List<String> ids = getFavoriteService().get(userId);
+    Map<String, BEntry> entryMap = getEntrySet();
+    for (String id : ids) {
+      BEntry entry = entryMap.get(id);
+      if (entry != null) {
+        entries.add(entry);
+      }
+    }
+
+    return entries;
+  }
+
+  @Override
+  public void save(String userId, List<String> entries) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+    Assert.assertArgumentNotNull(entries, "entries");
+
+    if (getFavoriteService() == null) {
+      return;
+    }
+    getFavoriteService().save(userId, entries);
+  }
+
+  @Override
+  public void enterEntry(String userId, String entry) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+    Assert.assertArgumentNotNull(entry, "entry");
+
+    if (getHabitService() == null) {
+      return;
+    }
+    getHabitService().enter(userId, entry);
+  }
+
+  @Override
+  public List<BCollectionEntry> queryRecent(String userId, int count) throws Exception {
+    Assert.assertArgumentNotNull(userId, "userId");
+
+    List<BCollectionEntry> entries = new ArrayList<BCollectionEntry>();
+    if (getHabitService() == null) {
+      return entries;
+    }
+
+    List<String> recents = getHabitService().queryRecent(userId, count);
+    Map<String, BEntry> allEntries = getEntrySet();
+    List<String> collections = getFavorites(userId);
+
+    for (String recent : recents) {
+      BEntry entry = allEntries.get(recent);
+      if (entry == null) {
+        continue;
+      }
+
+      BCollectionEntry collectionEntry = new BCollectionEntry();
+      collectionEntry.setEntry(entry);
+      if (collections.contains(recent)) {
+        collectionEntry.setCollection(true);
+      }
+      entries.add(collectionEntry);
+    }
+
+    return entries;
+  }
+
+  private FavoriteService getFavoriteService() {
+    return null;
+  }
+
+  private HabitService getHabitService() {
+    return null;
+  }
+
+}

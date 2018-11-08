@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+  version="1.0">
+  <persistence-unit name="demo-unit">
+
+    <exclude-unlisted-classes />
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <class>com.hd123.demo.impl.product.dao.PProduct</class>
+  </persistence-unit>
+</persistence>

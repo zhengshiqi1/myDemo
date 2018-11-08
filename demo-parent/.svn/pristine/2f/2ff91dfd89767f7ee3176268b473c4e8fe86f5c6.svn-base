@@ -1,0 +1,17 @@
+Ext.util.Format.permilSign = '‰';
+
+Ext.util.Format.percentRenderer = function (formatString) {
+    return function (v) {
+        return Ext.util.Format.percent(v, formatString);
+    };
+};
+
+Ext.util.Format.permil = function (value, formatString) {
+    return Ext.util.Format.number(value * 1000, formatString || '0') + Ext.util.Format.permilSign;
+};
+
+Ext.util.Format.permilRenderer = function () {
+    return function (v) {
+        return Ext.util.Format.permil(v);
+    };
+};

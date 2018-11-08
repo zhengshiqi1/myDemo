@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<enunciate label="bpm-api" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://enunciate.codehaus.org/schemas/enunciate-1.28.xsd">
+
+  <api-import pattern="com.hd123.demo.rs.**" seekSource="true" />
+  <api-import pattern="com.hd123.rumba.commons.biz.query.**"
+    seekSource="true" />
+
+  <modules>
+    <docs disabled="true" />
+    <jersey disabled="true" />
+    <c disabled="true" />
+    <csharp disabled="true" />
+    <cxf disabled="true" />
+    <amf disabled="true" />
+    <jaxws disabled="true" />
+    <jaxws-client disabled="true" />
+    <jaxws-ri disabled="true" />
+    <obj-c disabled="true" />
+    <xml disabled="true" />
+    <php disabled="true" />
+    <ruby disabled="true" />
+    <swagger />
+  </modules>
+</enunciate>

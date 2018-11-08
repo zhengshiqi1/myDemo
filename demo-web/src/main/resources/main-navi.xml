@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navi-set xmlns="http://p.rumba.com/rumba/navi_1-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://p.rumba.com/rumba/navi_1-0 http://p.rumba.com/rumba/navi_1-0.xsd">
+
+  <navi>
+    <name>Main Menu</name>
+    <item>
+      <caption>商品</caption>
+      <url>/demo-web/demo/index.html#demo.product?node=search</url>
+    </item>
+    <item>
+      <caption>订单</caption>
+      <url>/demo-web/demo/index.html#demo.order?node=search</url>
+    </item>
+  </navi>
+
+  <navi>
+    <name>Main Toolbar</name>
+  </navi>
+</navi-set>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 版权所有(C)，上海海鼎信息工程股份有限公司，2013，所有权利保留。 -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="true" />
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <property name="locations">
+      <list>
+        <value>classpath:demo-web.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <import resource="classpath:META-INF/demo-rs-proxy.xml" />
+  <import resource="classpath:META-INF/ia-audit-api/*.xml" />
+  <import resource="classpath:META-INF/ia-audit-transport/*.xml" />
+  <import resource="classpath:META-INF/ia-authen-api/*.xml" />
+  <import resource="classpath:META-INF/ia-authen-transport/*.xml" />
+  <import resource="classpath:META-INF/ia-author-api/*.xml" />
+  <import resource="classpath:META-INF/ia-author-transport/*.xml" />
+
+  <import resource="classpath:ia-cas-server-api.xml" />
+  <import resource="classpath:demo-webframe.xml" />
+
+</beans>

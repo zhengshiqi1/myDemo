@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:security="http://www.springframework.org/schema/security" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p" xmlns:cxf="http://cxf.apache.org/core"
+  xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/security 
+http://www.springframework.org/schema/security/spring-security.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd
+http://cxf.apache.org/core
+http://cxf.apache.org/schemas/core.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+  <bean id="jsonDateFormat" class="java.text.SimpleDateFormat">
+    <constructor-arg value="yyyy-MM-dd'T'HH:mm:ss.SSSZ" />
+  </bean>
+
+  <bean id="annotationIntrospector" class="org.codehaus.jackson.xc.JaxbAnnotationIntrospector">
+  </bean>
+
+  <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
+    <property name="mapper">
+      <bean class="org.codehaus.jackson.map.ObjectMapper">
+        <property name="serializationConfig.dateFormat" ref="jsonDateFormat" />
+        <property name="serializationConfig.annotationIntrospector" ref="annotationIntrospector" />
+        <property name="deserializationConfig.dateFormat" ref="jsonDateFormat" />
+        <property name="deserializationConfig.annotationIntrospector" ref="annotationIntrospector" />
+      </bean>
+    </property>
+  </bean>
+
+  <jaxrs:server id="services" address="/">
+    <jaxrs:serviceBeans>
+      <bean class="com.hd123.demo.rs.server.product.RSProductServiceImpl" p:productService-ref="demo-api.productService" />
+      <bean class="com.hd123.demo.rs.server.order.RSOrderServiceImpl" p:orderService-ref="demo-api.orderService" />
+    </jaxrs:serviceBeans>
+
+    <jaxrs:providers>
+      <bean class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
+      <ref bean="jsonProvider" />
+      <bean class="com.hd123.rumba.commons.rs.exception.IllegalArgumentExceptionMapper"
+        p:simpleMessage="true" />
+      <bean class="com.hd123.rumba.commons.rs.exception.IOExceptionMapper" p:simpleMessage="true" />
+      <bean class="com.hd123.rumba.commons.rs.security.AccessDeniedExceptionMapper" />
+    </jaxrs:providers>
+
+    <jaxrs:features>
+      <cxf:logging />
+    </jaxrs:features>
+  </jaxrs:server>
+
+  <security:global-method-security secured-annotations="enabled">
+  </security:global-method-security>
+
+  <security:http auto-config="true" create-session="never">
+    <security:http-basic />
+  </security:http>
+
+  <security:authentication-manager>
+    <security:authentication-provider>
+      <security:user-service properties="classpath:META-INF/demo-users.properties" />
+    </security:authentication-provider>
+  </security:authentication-manager>
+
+</beans>
