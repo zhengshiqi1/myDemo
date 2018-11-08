@@ -1,5 +1,10 @@
 package com.hd123.demo.service.order;
 
+/**
+ * 
+ * @author zhengshiqi
+ *
+ */
 public class Orders {
   /** 查询条件(String)：uuid等于。 */
   public static final String CONDITION_UUID_EQUALS = "uuid.equals";
