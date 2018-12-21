@@ -55,7 +55,7 @@ public class Order extends StandardEntity{
     this.supplier = supplier;
   }
   
-  /** 订货日期 */
+  /**  订货日期 */
   @NotNull
   public Date getOrderDate() {
     return orderDate;
