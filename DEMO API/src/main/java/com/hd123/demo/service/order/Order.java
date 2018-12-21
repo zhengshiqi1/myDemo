@@ -21,7 +21,6 @@ import com.hd123.rumba.commons.biz.validator.NotNull;
 public class Order extends StandardEntity {
 
   private static final long serialVersionUID = 4124945464145337616L;
-
   private String code;
   private UCN supplier;
   private Date orderDate;
