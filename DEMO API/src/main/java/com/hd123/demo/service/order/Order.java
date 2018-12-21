@@ -34,6 +34,24 @@ public class Order extends StandardEntity {
   private BigDecimal sumQty;
   private String aa;
   private String bb;
+  private String cc;
+  private String dd;
+
+  public String getCc() {
+    return cc;
+  }
+
+  public void setCc(String cc) {
+    this.cc = cc;
+  }
+
+  public String getDd() {
+    return dd;
+  }
+
+  public void setDd(String dd) {
+    this.dd = dd;
+  }
 
   public String getAa() {
     return aa;
